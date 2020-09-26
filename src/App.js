@@ -1,26 +1,57 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+
+export default class App extends Component{
+    constructor(props){
+      super(props);
+      this.state = {
+          data : {}.toString(),
+    };
+    console.log("num1");
+ };
+    componentDidMount(){
+      fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles`,{
+      method : "GET",
+      body : JSON.stringify()
+    })
+    .then((u)=>{
+      return u;
+    })
+      .then((j)=>{
+        this.setState({
+          data : this.state.data.toString()
+        })
+        console.log(j.json());//returns the json in to the console
+        console.log("num2");
+        console.log(j.status);
+  })     
+  
+  
 }
 
-export default App;
+
+    
+
+render(){
+  console.log(this.state.data.toString());
+  console.log("num3");
+  const data =  this.state.data.toString();
+ Object.entries(data).forEach(([key , value])=>{
+     console.log(key, value);
+ })
+ console.log("here im am again");
+       return( 
+               <div className="List" key = {data}
+               value>
+                      <div id ="result" > 
+                      
+                        </div>
+                       <div/>
+                  </div>
+       )
+  }
+}
+
