@@ -8,50 +8,60 @@ export default class App extends Component{
     constructor(props){
       super(props);
       this.state = {
-          data : {}.toString(),
-    };
-    console.log("num1");
+          data : {},
+          isLoading : true
+    }
  };
+
+
+
+
+
     componentDidMount(){
-      fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles`,{
+      fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles/`,{
       method : "GET",
-      body : JSON.stringify()
     })
-    .then((u)=>{
-      return u;
-    })
-      .then((j)=>{
+    .then(res => res.json(res))
+      .then(res => {
         this.setState({
-          data : this.state.data.toString()
+            data : res,
+            isLoading : false
         })
-        console.log(j.json());//returns the json in to the console
-        console.log("num2");
-        console.log(j.status);
-  })     
-  
-  
+      })
+      .catch((err =>{
+        console.error(err);
+      }));
 }
+
 
 
     
 
 render(){
-  console.log(this.state.data.toString());
-  console.log("num3");
-  const data =  this.state.data.toString();
- Object.entries(data).forEach(([key , value])=>{
-     console.log(key, value);
- })
- console.log("here im am again");
+  const data = JSON.parse(JSON.stringify(this.state))
+  const {isLoading} = this.state;
+    const map = new Map(Object.entries(data));
+    console.log(map);
        return( 
-               <div className="List" key = {data}
-               value>
-                      <div id ="result" > 
-                      
-                        </div>
-                       <div/>
-                  </div>
+         <div >
+           {isLoading ? (
+          <div className="cssload-tetrominos">
+          <div className="cssload-tetromino cssload-box1"></div>
+          <div className="cssload-tetromino cssload-box2"></div>
+          <div className="cssload-tetromino cssload-box3"></div>
+          <div className="cssload-tetromino cssload-box4"></div>
+        </div>
+           ) :(
+             <div>
+               {JSON.stringify(Object.entries(data))}
+               <div>
+                
+               </div>
+             </div>
+           )
+           }
+           </div>
        )
+          
   }
 }
-
