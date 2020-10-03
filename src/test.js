@@ -60,8 +60,23 @@
 //   }
 
 
+// const map = new Map(Object.entries(data));
+//     console.log(map);
 
 
+// const map = new Map(Object.entries(data));
+//     console.log(map);
+//     for (let [key ,value] of Object.keys(data)){
+//       console.log(key + " = " + value);
+//     }
+//     const data1 = this.state;
+//     console.log(JSON.stringify(data1));
+
+
+
+// Object.keys(data).forEach((key) =>{
+//     console.log((key , data[key]));
+//   })
 
 
 

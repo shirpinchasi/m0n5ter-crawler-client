@@ -9,6 +9,7 @@
     "bootstrap": "^4.5.2",
     "bootstrap-sass": "^3.4.1",
     "bootstrap-scss": "^4.5.2",
+    "object-bystring": "^5.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",

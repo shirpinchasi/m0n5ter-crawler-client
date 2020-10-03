@@ -38,10 +38,10 @@ export default class App extends Component{
     
 
 render(){
-  const data = JSON.parse(JSON.stringify(this.state))
+  const data = JSON.stringify((this.state.data));
   const {isLoading} = this.state;
-    const map = new Map(Object.entries(data));
-    console.log(map);
+ for (var prop in data){
+   if (Object.prototype.hasOwnProperty.call(data , prop)){
        return( 
          <div >
            {isLoading ? (
@@ -52,16 +52,17 @@ render(){
           <div className="cssload-tetromino cssload-box4"></div>
         </div>
            ) :(
-             <div>
-               {JSON.stringify(Object.entries(data))}
+             <div >
+               {data}
+               {/* {JSON.stringify(this.state.data._embedded)} */}
                <div>
-                
                </div>
              </div>
            )
            }
            </div>
        )
-          
+      }
+    }
   }
 }
