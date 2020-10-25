@@ -52,39 +52,37 @@
 
 
 
-// const data = JSON.parse(JSON.stringify(this.state))
-//   const {isLoading} = this.state;
-//   const map = new Map(Object.entries(data));
-//   for (const prop in map) {
-//     console.log((`${prop} : ${map[prop]}`));
-//   }
+// const mapObject = require('map-obj');
+//       const newObj = mapObject({data},(key , value)=>[value,key]);
+//       console.log(newObj);
+      
 
 
-// const map = new Map(Object.entries(data));
-//     console.log(map);
-
-
-// const map = new Map(Object.entries(data));
-//     console.log(map);
-//     for (let [key ,value] of Object.keys(data)){
-//       console.log(key + " = " + value);
-//     }
-//     const data1 = this.state;
-//     console.log(JSON.stringify(data1));
+ // const mapObject = require('map-obj');
+    //   const newObj = mapObject(data,(key , value)=>[value,key]);
+    //   console.log(newObj);
 
 
 
-// Object.keys(data).forEach((key) =>{
-//     console.log((key , data[key]));
-//   })
+
+    // {
+    //     this.state.data.map((obj, i )=>
+    //       <div key = {i}>
+    //         {obj.groups}
+    //       </div>
+    //     )
+
+    //   })
 
 
 
 
 
 
-
-
+    // {this.state.data.map((key,value)=>{
+    //     return <div key = {value}>
+    //       {key.id}
+    //       {key.name}
 
 
 // export default FetchData;

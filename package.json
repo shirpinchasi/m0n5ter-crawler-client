@@ -9,11 +9,13 @@
     "bootstrap": "^4.5.2",
     "bootstrap-sass": "^3.4.1",
     "bootstrap-scss": "^4.5.2",
+    "foreach-object": "^1.0.3",
+    "map-obj": "^4.1.0",
     "object-bystring": "^5.0.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "^3.4.4"
   },
   "scripts": {
     "start": "react-scripts start",
