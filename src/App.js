@@ -10,7 +10,7 @@ export default class App extends Component{
     constructor(props){
       super(props);
       this.state = {
-          data : {},
+          data : [],
           isLoading : true
     }
  };
@@ -26,8 +26,8 @@ export default class App extends Component{
     .then(res => res.json(res))
       .then(res => {
         this.setState({
-            data :res._embedded.articles,
-            isLoading : false
+           data :res._embedded.articles,
+           isLoading : false
         })
       })
       .catch((err =>{
@@ -40,38 +40,62 @@ export default class App extends Component{
 render(){
   const {isLoading , data} = (this.state);
   console.log(data);
-
   
-    
-      
-
-
-  return(
-          
-        <div>
-          <div>
-            </div>
+  return( 
+      <div>
           {isLoading ? (
             <div className="cssload-tetrominos">
-              <div className="cssload-tetromino cssload-box1"></div>
-              <div className="cssload-tetromino cssload-box2"></div>
-              <div className="cssload-tetromino cssload-box3"></div>
-              <div className="cssload-tetromino cssload-box4"></div>
+                    <div className="cssload-tetromino cssload-box1"></div>
+                    <div className="cssload-tetromino cssload-box2"></div>
+                    <div className="cssload-tetromino cssload-box3"></div>
+                    <div className="cssload-tetromino cssload-box4"></div>
             </div>
             ) :(
               
-            <div>
-             
+          <div>
+        
+                
+            {
+              data.map((article)=>(
+                <div>{article.groups.map((gr)=>(
+                  <div className ="groups">
+                          <div className ="groupId">group id:  {gr.id}<div>
+                          <div className ="groupName"> group name : {gr.name} </div>
+                          <div className ="groupDesc">group decription : {gr.description}</div>
+                          <div className ="groupAliases"> group aliases : {gr.aliases}</div>                                  
+                                                            
+                                                            
+                  </div>
+                  </div>
+                                          
+                        
+                        <div className ="articleTitle"> Title: {article.title}
+                        <div className ="articleDate">Date: {article.date} 
+                        
+                        
+                        
+                    )    </div>
+              </div>
+              </div>
+
+                ))}
+              </div>
+              
+              ))
+            }
                 <div >
                     <div>
                     {/* {
-                      this.state.data.map((obj, i )=>
+                      this.state.data.map((obj, i )=> 
                         <div key = {i}>
-                          {data.groups}
+                          {obj}
                         </div>
                       )
               
                     }) */}
+                    <div>
+              
+                      </div>           
           
                       </div>
                 </div>
