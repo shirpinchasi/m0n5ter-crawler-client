@@ -2,11 +2,6 @@ import React, { Component } from 'react';
 import './App.scss';
 import "bootstrap";
 
-
-
-
-
-
 export default class App extends Component{
     constructor(props){
       super(props);
@@ -15,10 +10,6 @@ export default class App extends Component{
           isLoading : true
     }
  };
-
-
-
-
 
     componentDidMount(){
       fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles/`,{
@@ -35,8 +26,6 @@ export default class App extends Component{
         console.error(err);
       }));
     }
-
-
 
 render(){
   const {isLoading , data} = (this.state);
@@ -77,10 +66,6 @@ render(){
                                       <div className ="group_Aliases">group aliases : {gr.aliases}</div>
                                       <div className ="group_Last_Scan">group last scan : {gr.lastScan}</div>
                                   </div>
-              
-              
-              
-              
               ))}
               </div>
               </div>
