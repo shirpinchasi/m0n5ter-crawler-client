@@ -1,3 +1,6 @@
+
+
+
 .cssload-tetrominos {
 	position: absolute;
   left: 50%;
@@ -271,16 +274,39 @@
 		-moz-transform: translate(0, 0);
 	}
 }
-
-.groups{
-	width: 1000px;
-	height: 300px;
+#cards{
+	width: 400px;
+	height: 350px;
+	margin-bottom: 100px;
+	margin-top: 2%;
+	margin-left: 20px;
+	box-shadow: 3px 4px 8px 6px rgba(4, 6, 116, 0.2), 0 6px 20px 0 rgba(49, 23, 23, 0.19);
 	
-
 }
-.articles{
-	width: 1000px;
-	height: 300px;
+#article_Title{
+	font-size: 20px;
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+#backgroundTitle{
+	text-align: center;
+}
+#article_Date{
+	text-align:center;
+}
+#groups{
+	font-family: "Georgia, serif";
+	font-size: 15px;
+}
+#group_Name{
+	margin-top: 5%;
+}
+#group_Id{
+	margin-top: 5%;
 	
-
 }
+
+#group_Aliases{
+	margin-top: 5%;
+}
+
+
