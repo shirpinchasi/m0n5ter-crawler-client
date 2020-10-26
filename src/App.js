@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
+import "bootstrap";
 
 
 
@@ -41,44 +42,47 @@ render(){
   const {isLoading , data} = (this.state);
   console.log(data);
   
-  return( 
-      <div>
+  return(
+          
+        <div>
+          <div>
+            </div>
           {isLoading ? (
             <div className="cssload-tetrominos">
-                    <div className="cssload-tetromino cssload-box1"></div>
-                    <div className="cssload-tetromino cssload-box2"></div>
-                    <div className="cssload-tetromino cssload-box3"></div>
-                    <div className="cssload-tetromino cssload-box4"></div>
+              <div className="cssload-tetromino cssload-box1"></div>
+              <div className="cssload-tetromino cssload-box2"></div>
+              <div className="cssload-tetromino cssload-box3"></div>
+              <div className="cssload-tetromino cssload-box4"></div>
             </div>
             ) :(
               
-          <div>
-        
+            <div>
                 
             {
               data.map((article)=>(
-                <div>{article.groups.map((gr)=>(
-                  <div className ="groups">
-                          <div className ="groupId">group id:  {gr.id}<div>
-                          <div className ="groupName"> group name : {gr.name} </div>
-                          <div className ="groupDesc">group decription : {gr.description}</div>
-                          <div className ="groupAliases"> group aliases : {gr.aliases}</div>                                  
-                                                            
-                                                            
-                  </div>
-                  </div>
-                                          
+                <div className = "articles">
+                        <div className ="article_Title"> Title: {article.title}</div>
+                        <div className ="article_Date">Date: {article.date}</div>
+                        <a href ={"" + article.url} className ="article_Url" target="_blank" rel="noopener noreferrer"> url link: {article.url}</a><br/>
+                        <a href = {article._links.self.href} className="article_linksHref" target="_blank"  rel="noopener noreferrer">  href :{article._links.self.href}</a><br/>
+                        <a href = {article._links.article.href} className="article_Href" target="_blank"  rel="noopener noreferrer"> article href :{article._links.article.href}</a><br/>
+                        <a href = {article._links.groups.href} className="article_GroupsHref" target="_blank"  rel="noopener noreferrer"> group href :{article._links.groups.href}</a>
                         
-                        <div className ="articleTitle"> Title: {article.title}
-                        <div className ="articleDate">Date: {article.date} 
-                        
-                        
-                        
-                    )    </div>
+                        <div className ="groups">
+                          {article.groups.map((gr)=>(
+                            
+                                  <div className ="group_Id"> group id:{gr.id}
+                                      <div className ="group_Name">group name : {gr.name}</div>
+                                      <div className ="group_Desc">group description : {gr.description}</div>
+                                      <div className ="group_Aliases">group aliases : {gr.aliases}</div>
+                                      <div className ="group_Last_Scan">group last scan : {gr.lastScan}</div>
+                                  </div>
+              
+              
+              
+              
+              ))}
               </div>
-              </div>
-
-                ))}
               </div>
               
               ))
