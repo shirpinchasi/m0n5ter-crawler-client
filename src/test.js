@@ -86,3 +86,13 @@
 
 
 // export default FetchData;
+
+
+
+
+
+// handleChange(e){
+//     this.setState({filter : e.target.value});
+//     e.preventDefault();
+//     console.log(e);
+//   }
