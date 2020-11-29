@@ -1,9 +1,7 @@
 import React, { Component} from 'react';
 import './App.scss';
-import "./Groups.scss"
+import "./Articles.scss"
 import "bootstrap";
-import Articles from"./Articles";
-import Sidebar from "./Sidebar"
 import config from "./config/index";
 
 
@@ -29,8 +27,7 @@ export default class Groups extends Component{
           const newData=[
               ...res._embedded.articles.reduce((acc, item)=>{
                   for (let group of item.groups){
-                      acc.add(group.name)
-                      acc.add(group.description)
+                      acc.add(group.description);
                   }
                   return acc;
               },new Set())
@@ -53,40 +50,24 @@ export default class Groups extends Component{
     
 
 render(){
-  const {isLoading, data} = (this.state);
+  const {data} = (this.state);
   return(
 <div>   
-           {isLoading ? (
-               <div className="cssload-tetrominos">
-               <div className="cssload-tetromino cssload-box1"></div>
-               <div className="cssload-tetromino cssload-box2"></div>
-               <div className="cssload-tetromino cssload-box3"></div>
-               <div className="cssload-tetromino cssload-box4"></div>
-             </div>
-           ):(
+          
                
                <div id="bg-dark"> 
-                        <div className ="navbar navbar-expand-lg mt-2 ">
-                        <a className="navbar-brand " href="#">M0n5ter Crawler</a>
-                        <Sidebar/>
-                    </div>
-                    <div className="d-flex justify-content-around">
-                  
+                        
+                    <div>
+                  <div className="cardim">
                           {data.map((gr)=>(
-                            <div className="d-flex">
-                                
-                              <div className="card col-12">
-                               <div key={gr} id ="group_Names">{gr}</div>
-                               
-                                  
-                              </div>
-                              
+                            <div id="card">{data.filter(description => description.includes("APT41"))}         
+                          <div id="cardim">{gr}</div>
                           </div>   
                                          
               ))}
               
                        
-              
+              </div>
               </div>
               
               
@@ -95,13 +76,12 @@ render(){
 
                           
             
-            )   
+               
                
         
-  }
+  
                </div>
                
            )}
             
 }
-
