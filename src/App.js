@@ -3,9 +3,7 @@ import './App.scss';
 import "bootstrap";
 import Groups from "./Groups";
 import Feed from "./Feed";
-import Articles from "./Articles"
 import SearchField from "./SearchField";
-import config from "./config/index";
 import { Route, BrowserRouter as Router, Switch, BrowserRouter,useHistory } from 'react-router-dom';
 
 
@@ -21,7 +19,7 @@ export default class App extends Component{
  };
 
     componentDidMount(){
-      fetch(config.apiUrl,{
+      fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc`,{
       method : "GET",
     })
     .then(res => res.json(res))
@@ -58,9 +56,6 @@ render(){
                       <Switch>   
                         <Route path="/Groups">
                             <Groups Component={Groups}/>
-                        </Route>
-                        <Route path="/Articles">
-                            <Articles Component={Articles}/>
                         </Route>
                         <Route path="/" exact={true} Component={Feed}>
                               <Feed Component={Feed}/>

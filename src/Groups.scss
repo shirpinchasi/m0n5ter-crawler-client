@@ -4,38 +4,10 @@
 	overflow: auto;
 	background-image: url("pictures/black.jpg");
 }
-.card  {
-    position: sticky;
-	width: 230px;
-	height: 230px;
-	margin-bottom: 10px;
-	margin-top: 2%;
-	margin-left: 20px;
-	border-radius: 7%;
-	background: radial-gradient(circle, rgba(33,33,33,1) 69%, rgba(2,90,4,1) 100%);
-	box-shadow: 3px 4px 8px 6px rgba(4, 5, 75, 0.2), 0 6px 20px 0 rgba(49, 23, 23, 0.19);
-    color: white;
-    overflow-y: auto;
-    text-align: center;
+.badge {
+    height: 26px;
+    position: static;
 }
-.card::-webkit-scrollbar {
-    width: 7px;
-
-}
-
-.card::-webkit-scrollbar-track {
-    background:grey;
-    border-radius: 9px;
-  }
-.card::-webkit-scrollbar-thumb {
-    background: green;
-    border-radius: 9px;
-  }
-  
-.card::-webkit-scrollbar-thumb:hover {
-    background: white;
-  }
-  
 .navbar{
 	background: linear-gradient(90deg, rgba(33,33,33,1) 0%, rgba(2,90,4,1) 49%, rgba(33,33,33,1) 100%);
     position: sticky;

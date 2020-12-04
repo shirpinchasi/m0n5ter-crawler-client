@@ -2,9 +2,7 @@ import React, { Component} from 'react';
 import './App.scss';
 import "./Groups.scss"
 import "bootstrap";
-import Articles from"./Articles";
 import Sidebar from "./Sidebar"
-import config from "./config/index";
 
 
 
@@ -21,7 +19,7 @@ export default class Groups extends Component{
  };
 
     componentDidMount(){
-      fetch(config.apiUrl,{
+      fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc`,{
       method : "GET",
     })
     .then(res => res.json(res))
@@ -29,8 +27,7 @@ export default class Groups extends Component{
           const newData=[
               ...res._embedded.articles.reduce((acc, item)=>{
                   for (let group of item.groups){
-                      acc.add(group.name)
-                      acc.add(group.description)
+                      acc.add(group.name);
                   }
                   return acc;
               },new Set())
@@ -75,12 +72,11 @@ render(){
                           {data.map((gr)=>(
                             <div className="d-flex">
                                 
-                              <div className="card col-12">
+                              <div className="badge badge-pill badge-secondary col-md-2">
                                <div key={gr} id ="group_Names">{gr}</div>
-                               
+                          <div key={gr.description}>{gr.description}</div>
                                   
                               </div>
-                              
                           </div>   
                                          
               ))}
@@ -104,4 +100,3 @@ render(){
            )}
             
 }
-

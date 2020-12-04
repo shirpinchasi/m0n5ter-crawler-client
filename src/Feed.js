@@ -4,7 +4,7 @@ import "bootstrap";
 import Groups from "./Groups"
 import { Route, BrowserRouter as Router,useHistory } from 'react-router-dom';
 import Sidebar from './Sidebar';
-import config from "./config/index";
+
 
 
 export default class Feed extends Component{
@@ -18,7 +18,7 @@ export default class Feed extends Component{
  };
 
     componentDidMount(){
-      fetch(config.apiUrl,{
+      fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc`,{
       method : "GET",
     })
     .then(res => res.json(res))

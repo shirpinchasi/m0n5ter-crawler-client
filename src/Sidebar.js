@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.scss';
 import "bootstrap";
 import Groups from "./Groups"
-import config from "./config/index";
 import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
 
 
@@ -18,7 +17,7 @@ export default class Sidebar extends Component{
  };
 
     componentDidMount(){
-      fetch(config.apiUrl,{
+      fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc`,{
       method : "GET",
     })
     .then(res => res.json(res))
@@ -56,7 +55,12 @@ render(){
                     <ul>
                     <Link to= "/" alt ="/" ><i className="fa fa-home"></i>Home</Link>
                     <Link to= "./Groups" alt ="Groups" ><i className="fa fa-users"></i>Groups</Link>
-                    <Link to= "./Articles" alt ="Articles" ><i className="fa fa-users"></i>Articles</Link>
+                    <li><a href="#"><i className="fa fa-info"></i>About</a></li>
+                    <li><a href="#"><i className="fas fa-stream"></i>Overview</a></li>
+                    <li><a href="#"><i className="fas fa-calendar-week"></i>Events</a></li>
+                    <li><a href="#"><i className="far fa-question-circle"></i>About</a></li>
+                    <li><a href="#"><i className="fas fa-sliders-h"></i>Services</a></li>
+                    <li><a href="#"><i className="far fa-envelope"></i>Contact</a></li>
                     
                     </ul>
                             
