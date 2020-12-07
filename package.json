@@ -13,6 +13,7 @@
     "create-react-app": "^4.0.1",
     "jquery": "^3.5.1",
     "node": "^14.15.0",
+    "node-engine": "0.0.5",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
     "react-create-app": "^2.0.6",
