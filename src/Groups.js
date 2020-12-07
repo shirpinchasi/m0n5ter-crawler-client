@@ -5,6 +5,7 @@ import "bootstrap";
 import Sidebar from "./Sidebar";
 import config from "./config/development";
 import { Link } from 'react-router-dom';
+import GroupId from "./GroupId";
 
 
 
@@ -76,7 +77,7 @@ render(){
                             <div className="d-flex">
                                 
                               <div id="cards2" className="col-12 col-md- col-sm-2 col-xs">
-                               <Link ><div key={gr} id ="group_Names">{gr}</div></Link>
+                               <Link to={`/GroupId`}><div key={gr} id ="group_Names">{gr}</div></Link>
                                
                               
                                   

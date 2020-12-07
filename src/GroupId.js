@@ -6,7 +6,7 @@ import config from "./config/development";
 
 
 
-export default class Feed extends Component{
+export default class GroupId extends Component{
     constructor(props){
       super(props);
       this.state = {
@@ -60,19 +60,12 @@ render(){
            
             {data.map((article)=>(
               
-              <div>
-                
-                <div id ="cards" className="col-12 col-md- col-sm-2 col-xs">
-                <div id = "articles" className="col">
-                  <div id = "backgroundTitle">
-                        <a href={"" + article.url} id ="article_Url" target="_blank" rel="noopener noreferrer" className="card link"><div key={article.title} id ="article_Title" className="row"> {article.title}</div></a>
-                        </div>
-                        <div key={article.date} id ="article_Date" className="card-subtitle mb-2 text-muted">{article.date}</div>
+                    <div>
                         <div className ="groups">
                           {article.groups.map((gr)=>(
                             <div id="groups">
                               <div className="badge badge-success">
-                                <div key={gr.name} id ="group_Name" className="">{gr.name}
+                                <div key={gr.id} id ="group_Name" className="">{gr.id}
                                 
                                   {/* <div id ="group_Id" className=""> ID: {gr.id} aliases:  {gr.aliases}</div> */}
                                   <div id ="group_Aliases" className="card-body"></div>
@@ -94,8 +87,6 @@ render(){
                         
                         </div> */}
               
-              </div>
-              </div>
               </div>
               </div>
               
