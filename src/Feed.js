@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.scss';
 import "bootstrap";
-import Groups from "./Groups"
-import { Route, BrowserRouter as Router,useHistory } from 'react-router-dom';
 import Sidebar from './Sidebar';
+import config from "./config/development";
+import SearchBar from "./search-box";
 
 
 
@@ -18,7 +18,7 @@ export default class Feed extends Component{
  };
 
     componentDidMount(){
-      fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc`,{
+      fetch(config.apiUrl,{
       method : "GET",
     })
     .then(res => res.json(res))
@@ -34,6 +34,7 @@ export default class Feed extends Component{
       
     };
      
+    
 
 render(){
   const {isLoading , data} = (this.state);
@@ -51,8 +52,10 @@ render(){
                     
             <div className=" bg-dark text-white">   
               <div className ="navbar navbar-expand-lg mt-2 ">
+              
               <a className="navbar-brand " href="#">M0n5ter Crawler</a>
               <Sidebar/>
+              
 </div>
             <div id="bg-dark"> 
            
@@ -82,6 +85,7 @@ render(){
                               </div>
                           </div>        
               ))}
+              
               
                         {/* <div className="card">
                             <a href ={"" + article.url} id ="article_Url" target="_blank" rel="noopener noreferrer" className="card link"> website link</a><br/>

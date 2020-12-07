@@ -5,6 +5,8 @@ import Groups from "./Groups";
 import Feed from "./Feed";
 import SearchField from "./SearchField";
 import { Route, BrowserRouter as Router, Switch, BrowserRouter,useHistory } from 'react-router-dom';
+import config from "./config/development"
+import Search_box from "./search-box"
 
 
 
@@ -19,7 +21,7 @@ export default class App extends Component{
  };
 
     componentDidMount(){
-      fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc`,{
+      fetch(config.apiUrl,{
       method : "GET",
     })
     .then(res => res.json(res))
@@ -53,7 +55,8 @@ render(){
                     <div>
                       <BrowserRouter history={useHistory}>
                       
-                      <Switch>   
+                      <Switch>  
+                      
                         <Route path="/Groups">
                             <Groups Component={Groups}/>
                         </Route>

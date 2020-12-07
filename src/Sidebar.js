@@ -3,6 +3,8 @@ import './App.scss';
 import "bootstrap";
 import Groups from "./Groups"
 import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
+import Search_box from './search-box';
+import SearchBar from './search-box';
 
 
 
@@ -11,7 +13,8 @@ export default class Sidebar extends Component{
       super(props);
       this.state = {
           data : [],
-          isLoading : true,
+          searchTerm : ""
+          
         
     }; 
  };
@@ -32,10 +35,12 @@ export default class Sidebar extends Component{
       }));
       
     };
+    
      
 
 render(){
-  const {isLoading,data} = this.state;
+  const {data} = this.state;
+  
   return(
     <div>
             <div>
@@ -45,16 +50,15 @@ render(){
             <i className="fa fa-bars" id="btn"></i>
             <i className="fa fa-times" id="cancel"></i>
             </label>
-
+              
                 <div className="sidebar">
-                        <input className="input" name="filterData"type="text" onChange={this.handleChange}/>
-                            {/* <Router history="#">
-                                <Route path ="./Groups" Link to="/Groups"><i className="fa fa-users"></i>Groups</Route>
-                            </Router> */}
+                  
+                        
+                            
                             
                     <ul>
-                    <Link to= "/" alt ="/" ><i className="fa fa-home"></i>Home</Link>
-                    <Link to= "./Groups" alt ="Groups" ><i className="fa fa-users"></i>Groups</Link>
+                    <li><a><Link to= "/" alt ="/" ><i className="fa fa-home"></i>Home</Link></a></li>
+                    <li><a><Link to= "./Groups" alt ="Groups" ><i className="fa fa-users"></i>Groups</Link></a></li>
                     <li><a href="#"><i className="fa fa-info"></i>About</a></li>
                     <li><a href="#"><i className="fas fa-stream"></i>Overview</a></li>
                     <li><a href="#"><i className="fas fa-calendar-week"></i>Events</a></li>

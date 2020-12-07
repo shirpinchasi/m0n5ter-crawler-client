@@ -2,15 +2,14 @@ import React, { Component} from 'react';
 import './App.scss';
 import "./Groups.scss"
 import "bootstrap";
-import Sidebar from "./Sidebar";
-import config from "./config/development";
-import Desc from "./Desc"
+import Sidebar from "./Sidebar"
+import config from "./config/development"
 
 
 
 
 
-export default class Groups extends Component{
+export default class Desc extends Component{
     constructor(props){
       super(props);
       this.state = {
@@ -29,12 +28,11 @@ export default class Groups extends Component{
           const newData=[
               ...res._embedded.articles.reduce((acc, item)=>{
                   for (let group of item.groups){
-                      acc.add( group.description);
+                      acc.add(group.description);
                   }
                   return acc;
               },new Set())
           ];
-          
           console.log(newData);
          
         this.setState({
@@ -56,29 +54,18 @@ render(){
   const {isLoading, data} = (this.state);
   return(
 <div>   
-           {isLoading ? (
-               <div className="cssload-tetrominos">
-               <div className="cssload-tetromino cssload-box1"></div>
-               <div className="cssload-tetromino cssload-box2"></div>
-               <div className="cssload-tetromino cssload-box3"></div>
-               <div className="cssload-tetromino cssload-box4"></div>
-             </div>
-           ):(
+          
                
                <div id="bg-dark"> 
-                        <div className ="navbar navbar-expand-lg mt-2 ">
-                        <a className="navbar-brand " href="#">M0n5ter Crawler</a>
-                        <Sidebar/>
-                    </div>
+                        
                     <div className="d-flex justify-content-around">
                   
                           {data.map((gr)=>(
                             <div className="d-flex">
                                 
-                              <div id="cards" className="col-12 col-md- col-sm-2 col-xs">
-                               <div key={gr.desc} id ="group_Names">{gr}</div>
-                               
-                              
+                              <div className="badge badge-pill badge-secondary col-md-2">
+                               <div key={gr} id ="group_Desc">{gr}</div>
+                          
                                   
                               </div>
                           </div>   
@@ -95,10 +82,6 @@ render(){
 
                           
             
-            )   
-               
-        
-  }
                </div>
                
            )}

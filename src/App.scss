@@ -396,12 +396,12 @@
 	color: white;
 	
 	box-sizing: border-box;
-	border-bottom: 1px solid black;
+	
 	border-top: 1px solid rgba(255,255,255,.1);
 	transition: .4s;
   }
   ul li:hover a{
-	padding-left: 50px;
+	padding-left: 5px;
   }
   .sidebar ul a i{
 	margin-right: 16px;
@@ -411,7 +411,7 @@
   }
   label #btn,label #cancel{
 	position: absolute;
-	background: #042331;
+	background: linear-gradient(90deg, rgba(33,33,33,1) 0%, rgba(2,90,4,1) 49%, rgba(33,33,33,1) 100%);
 	border-radius: 3px;
 	cursor: pointer;
   }
@@ -430,7 +430,7 @@
 	top: 0px;
 	margin-left: 13px;
 	font-size: 30px;
-	color: #0a5275;
+	color: black;
 	padding: 4px 9px;
 	transition: all .5s ease;
   }

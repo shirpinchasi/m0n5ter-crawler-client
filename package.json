@@ -1,29 +1,25 @@
 {
   "name": "m0n5ter-crawler-client",
   "version": "0.1.0",
-  "engines": {
-    "node": "12.x"
-  },
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.1",
-    "@popperjs/core": "^2.5.3",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
     "bootstrap": "^4.5.2",
     "bootstrap-sass": "^3.4.1",
     "bootstrap-scss": "^4.5.2",
-    "foreach-object": "^1.0.3",
+    "create-react-app": "^4.0.1",
     "jquery": "^3.5.1",
-    "map-obj": "^4.1.0",
     "node": "^14.15.0",
-    "object-bystring": "^5.0.1",
     "popper.js": "^1.16.1",
     "react": "^16.13.1",
+    "react-create-app": "^2.0.6",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^3.4.4"
+    "react-scripts": "^4.0.1",
+    "webpack": "^4.44.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -47,7 +43,6 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "^4.14.1",
-    "webpack": "^5.9.0"
+    "node-sass": "^4.14.1"
   }
 }
