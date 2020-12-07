@@ -4,7 +4,7 @@ import "./Groups.scss"
 import "bootstrap";
 import Sidebar from "./Sidebar";
 import config from "./config/development";
-import Desc from "./Desc"
+import { Link } from 'react-router-dom';
 
 
 
@@ -29,7 +29,7 @@ export default class Groups extends Component{
           const newData=[
               ...res._embedded.articles.reduce((acc, item)=>{
                   for (let group of item.groups){
-                      acc.add( group.description);
+                      acc.add( group.name);
                   }
                   return acc;
               },new Set())
@@ -75,8 +75,8 @@ render(){
                           {data.map((gr)=>(
                             <div className="d-flex">
                                 
-                              <div id="cards" className="col-12 col-md- col-sm-2 col-xs">
-                               <div key={gr.desc} id ="group_Names">{gr}</div>
+                              <div id="cards2" className="col-12 col-md- col-sm-2 col-xs">
+                               <Link ><div key={gr} id ="group_Names">{gr}</div></Link>
                                
                               
                                   

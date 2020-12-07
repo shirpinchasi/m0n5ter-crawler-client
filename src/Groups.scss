@@ -4,12 +4,12 @@
 	overflow: auto;
 	background-image: url("pictures/black.jpg");
 }
-#cards{
+#cards2{
 	position: static;
 	width: 230px;
-	height: 300px;
-	margin-bottom: 10px;
-	margin-top: 2%;
+	height: 40px;
+	margin-bottom: 40px;
+	margin-top: 3%;
 	margin-left: 20px;
 	border-radius: 10%;
 	background: radial-gradient(circle, rgba(33,33,33,1) 69%, rgba(2,90,4,1) 100%);
@@ -21,6 +21,9 @@
 }
 #cards::-webkit-scrollbar {
 	width: 10px;
+  }
+  #group_Names{
+	  color: white;
   }
 .navbar{
 	background: linear-gradient(90deg, rgba(33,33,33,1) 0%, rgba(2,90,4,1) 49%, rgba(33,33,33,1) 100%);

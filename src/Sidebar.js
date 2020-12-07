@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import "bootstrap";
-import Groups from "./Groups"
-import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
-import Search_box from './search-box';
-import SearchBar from './search-box';
+import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 
 

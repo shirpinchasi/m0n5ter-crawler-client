@@ -3,7 +3,6 @@ import './App.scss';
 import "bootstrap";
 import Sidebar from './Sidebar';
 import config from "./config/development";
-import SearchBar from "./search-box";
 
 
 
