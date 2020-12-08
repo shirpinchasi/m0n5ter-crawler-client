@@ -16,23 +16,36 @@ export default class GroupId extends Component{
     }; 
  };
 
-    componentDidMount(){
-      fetch(config.apiUrl,{
-      method : "GET",
-    })
-    .then(res => res.json(res))
-      .then(res => {
-        this.setState({
-           data :res._embedded.articles,
-           isLoading : false,
-        })
-      })
-      .catch((err =>{
-        console.error(err);
-      }));
+ componentDidMount(){
+  fetch(config.apiUrl,{
+  method : "GET",
+})
+.then(res => res.json(res))
+  .then(res => {
+      const newData=[
+          ...res._embedded.articles.reduce((acc, item)=>{
+              for (let group of item.group){
+                  acc.add(group.id);
+              }
+              return acc;
+          },new Set())
+      ];
       
-    };
+      console.log(newData);
      
+    this.setState({
+        data : newData,
+       isLoading : false,
+        
+       
+    })
+    
+  })
+  .catch((err =>{
+    console.error(err);
+  }));
+  
+};
     
 
 render(){
@@ -61,6 +74,7 @@ render(){
             {data.map((article)=>(
               
                     <div>
+                      hiiiiiiiiiiiiiii
                         <div className ="groups">
                           {article.groups.map((gr)=>(
                             <div id="groups">
