@@ -12,20 +12,16 @@ export default class Feed extends Component{
       this.state = {
           data : [],
           isLoading : true,
-          dateFilter : null
-        
-    }; 
- };
- shouldComponentUpdate(newState){
-   return newState.filter != this.state.filter
- }
+      }; 
+    };
+
 
     componentDidMount(){
       fetch(config.apiUrl,{
-      method : "GET",
-    })
-    .then(res => res.json(res))
-      .then(res => {
+        method : "GET",
+      })
+    .then(res => res.json())
+    .then(res => {
         this.setState({
            data :res._embedded.articles,
            isLoading : false,
@@ -36,18 +32,11 @@ export default class Feed extends Component{
       }));
       
     };
-    handleUpdateFilter = (newFilter) =>{
-      this.setState({dateFilter : newFilter});
-    }
-    getFilteredData =()=>{
-      return this.state.data.filter(x => x.date === this.state.dateFilter);
-    }
- 
-
+  
 render(){
   const {isLoading , data} = (this.state);
   return(
-          
+          //search box -->data
             <div id="background">
                 {isLoading ? (
                   <div className="cssload-tetrominos">
@@ -66,11 +55,6 @@ render(){
               
 </div>
             <div id="bg-dark"> 
-           <div className="filter" filter={this.state.dateFilter}
-           handleUpdateFilter={this.handleUpdateFilter}
-           date = {this.getFilteredData()} > 
-            sort
-           </div>
             {data.map((article)=>(
               
               <div>

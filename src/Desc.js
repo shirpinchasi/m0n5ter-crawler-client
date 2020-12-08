@@ -20,7 +20,7 @@ export default class Desc extends Component{
  };
 
     componentDidMount(){
-      fetch(config.apiUrl,{
+      fetch("https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc",{
       method : "GET",
     })
     .then(res => res.json(res))

@@ -23,7 +23,7 @@ export default class Groups extends Component{
  };
 
     componentDidMount(){
-      fetch(config.apiUrl,{
+      fetch("https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc",{
       method : "GET",
     })
     .then(res => res.json(res))
@@ -31,7 +31,7 @@ export default class Groups extends Component{
           const newData=[
               ...res._embedded.articles.reduce((acc, item)=>{
                   for (let group of item.groups){
-                      acc.add( group.name);
+                      acc.add( group.name+ group.id);
                   }
                   return acc;
               },new Set())
@@ -76,7 +76,7 @@ render(){
                   
                           {data.map((gr)=>(
                             <div className="d-flex">
-                                
+                                {console.log(gr)}
                               <div id="cards2" className="col-12 col-md- col-sm-2 col-xs">
                                <Link to={`./GroupId`}><div key={gr} id ="group_Names">{gr}</div></Link>
                                

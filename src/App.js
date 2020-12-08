@@ -16,15 +16,16 @@ export default class App extends Component{
       this.state = {
           data : [],
           isLoading : true,
-        
-    }; 
- };
+      }; 
+    };
 
     componentDidMount(){
-      fetch(config.apiUrl,{
-      method : "GET",
-    })
-    .then(res => res.json(res))
+      fetch("https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc",{
+        method : "GET",
+      })
+      .then(res => {
+        debugger;
+        return res.json()})
       .then(res => {
         this.setState({
            data :res._embedded.articles,
@@ -56,7 +57,9 @@ render(){
                       <BrowserRouter history={useHistory}>
                       
                       <Switch>  
-                      
+                      <Route path="/GroupId:id">
+                            <GroupDetail />
+                        </Route>
                         <Route path="/Groups">
                             <Groups Component={Groups}/>
                         </Route>
