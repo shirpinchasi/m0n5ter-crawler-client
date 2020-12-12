@@ -28,7 +28,6 @@ export default class GroupId extends Component{
     })
   })
   .catch((err =>{
-    debugger;
     console.error(err);
   }));
   
@@ -62,7 +61,7 @@ render(){
               
                     <div>
                         <div className ="groups">
-                          {article.groups.map((gr)=>(
+                          {article.groups.filter((gr)=>(
                             <div id="groups">
                               <div className="badge badge-success">
                                 <div key={gr.id} id ="group_Name" className="">{gr.id}

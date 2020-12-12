@@ -24,7 +24,6 @@ export default class App extends Component{
         method : "GET",
       })
       .then(res => {
-        debugger;
         return res.json()})
       .then(res => {
         this.setState({

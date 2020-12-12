@@ -6,13 +6,25 @@ import config from "./config/development";
 
 
 
+function searchingForTitle(term){
+  return function(x){
+    return x.title.toLowerCase().includes(term.toLowerCase()) || !term;
+    
+  }
+}
+
+
+
 export default class Feed extends Component{
     constructor(props){
       super(props);
       this.state = {
           data : [],
           isLoading : true,
+          term : "",
+          
       }; 
+      this.searchHandler = this.searchHandler.bind(this)
     };
 
 
@@ -31,12 +43,16 @@ export default class Feed extends Component{
         console.error(err);
       }));
       
-    };
+};
+
+searchHandler(e){
+  this.setState({term :e.target.value})
+}
+
   
 render(){
-  const {isLoading , data} = (this.state);
-  return(
-          //search box -->data
+  const {isLoading , data , term} = (this.state);
+  return( 
             <div id="background">
                 {isLoading ? (
                   <div className="cssload-tetrominos">
@@ -49,13 +65,13 @@ render(){
                     
             <div className=" bg-dark text-white">   
               <div className ="navbar navbar-expand-lg mt-2 ">
-              
+                  <input id="search" label = "search" value={term} type="text" placeholder="search here.." onChange={this.searchHandler}/>
               <a className="navbar-brand " href="#">M0n5ter Crawler</a>
               <Sidebar/>
               
-</div>
+            </div>
             <div id="bg-dark"> 
-            {data.map((article)=>(
+            {data.filter(searchingForTitle(term)).map((article)=>(
               
               <div>
                 

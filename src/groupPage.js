@@ -28,7 +28,6 @@ export default class GroupId extends Component{
     })
   })
   .catch((err =>{
-    debugger;
     console.error(err);
   }));
   

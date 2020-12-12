@@ -31,7 +31,7 @@ export default class Groups extends Component{
           const newData=[
               ...res._embedded.articles.reduce((acc, item)=>{
                   for (let group of item.groups){
-                      acc.add( group.name+ group.id);
+                      acc.add( group.name );
                   }
                   return acc;
               },new Set())
@@ -72,8 +72,9 @@ render(){
                         <a className="navbar-brand " href="#">M0n5ter Crawler</a>
                         <Sidebar/>
                     </div>
+                    
                     <div className="d-flex justify-content-around">
-                  
+                      <h1 className="groupHeader">Group Page</h1>
                           {data.map((gr)=>(
                             <div className="d-flex">
                                 {console.log(gr)}
