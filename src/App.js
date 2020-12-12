@@ -57,9 +57,9 @@ render(){
                       <BrowserRouter history={useHistory}>
                       
                       <Switch>  
-                      <Route path="/GroupId:id">
+                      {/* <Route path="/GroupId:id">
                             <GroupDetail />
-                        </Route>
+                        </Route> */}
                         <Route path="/Groups">
                             <Groups Component={Groups}/>
                         </Route>

@@ -1,12 +1,10 @@
-import React from "react";
+// const { data } = require("jquery")
+// const { Z_FILTERED } = require("zlib")
 
-const SearchBar = (props)=>{
-    return(
-        <input
-        type="text"
-        value ={props.inputValue}
-        onChange={props.nameFilter}
-        />
-    )
-}
-export default SearchBar;
+// form 
+
+// Input 
+// filter 
+// return data.contains(input)
+
+// את התוצאות את מיגה בקומפפונטה שיצרת כבר
