@@ -9,6 +9,13 @@ function searchingForTitle(term){
     
   }
 }
+function searchingForDesc(searchDesc){
+  return function(x){
+     return x.description.toLowerCase().includes(searchDesc.toLowerCase()) || !searchDesc
+    
+  }
+}
+
 
 
 
@@ -19,8 +26,11 @@ export default class Groups extends Component{
           data : [],
           isLoading : true,
           term : "",
+          searchDesc:""
     }; 
-    this.searchHandler = this.searchHandler.bind(this)
+    this.searchHandlerName  = this.searchHandlerName.bind(this)
+    this.searchHandlerDesc  = this.searchHandlerDesc.bind(this)
+ 
  };
 
     componentDidMount(){
@@ -39,14 +49,17 @@ export default class Groups extends Component{
       }));
       
 };
-searchHandler(e){
+searchHandlerName(e){
   this.setState({term :e.target.value})
+}
+searchHandlerDesc(e){
+  this.setState({searchDesc : e.target.value })
 }
 
     
 
 render(){
-  const {isLoading, data,term} = (this.state);
+  const {isLoading, data,term, searchDesc} = (this.state);
   return(
         <div>   
            {isLoading ? (
@@ -65,9 +78,10 @@ render(){
                     </div>
                     
                     <div className="d-flex justify-content-around">
-                    <input id="search" label = "search" value={term} type="text" placeholder="search here.." onChange={this.searchHandler}/>
+                    <input  id="search1" label = "search" value={term} type="text" placeholder="search here for name " onChange={this.searchHandlerName}/>
+                    <input id="search2" label = "search" value={searchDesc} type="text" placeholder="search here for description" onChange={this.searchHandlerDesc}/>
                       <h1 className="groupHeader">Group Page</h1>
-                          {data.filter(searchingForTitle(term)).map((group)=>(
+                          {data.filter(searchingForTitle(term)).filter(searchingForDesc(searchDesc)).map((group)=>(
                             <div className="d-flex">
                               <div id="cards2" className="col-12 col-md- col-sm-2 col-xs">
                                <div key={group.n} id ="group_Names">{group.name}

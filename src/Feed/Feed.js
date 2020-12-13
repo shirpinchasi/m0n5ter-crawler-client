@@ -12,6 +12,12 @@ function searchingForTitle(term){
     
   }
 }
+function searchingForNames(searchDesc){
+  return function(x){
+     return x.name.toLowerCase().includes(searchDesc.toLowerCase()) || !searchDesc
+    
+  }
+}
 
 
 
@@ -23,10 +29,12 @@ export default class Feed extends Component{
           data : [],
           isLoading : true,
           term : "",
+          searchDesc : ""
           
           
       }; 
-      this.searchHandler = this.searchHandler.bind(this)
+      this.searchHandlerTitle = this.searchHandlerTitle.bind(this)
+      this.searchHandlerName  = this.searchHandlerName.bind(this)
     };
 
 
@@ -47,13 +55,16 @@ export default class Feed extends Component{
       
 };
 
-searchHandler(e){
+searchHandlerTitle(e){
   this.setState({term :e.target.value})
+}
+searchHandlerName(e){
+  this.setState({searchDesc : e.target.value })
 }
 
   
 render(){
-  const {isLoading , data , term} = (this.state);
+  const {isLoading , data , term,searchDesc} = (this.state);
  
   return( 
             <div id="background">
@@ -68,8 +79,8 @@ render(){
                     
             <div className=" bg-dark text-white">   
               <div className ="navbar navbar-expand-lg mt-2 ">
-                  <input id="search" label = "search" value={term} type="text" placeholder="search here.." onChange={this.searchHandler}/>
-
+                  <input id="search1" label = "search" value={term} type="text" placeholder="search here for title" onChange={this.searchHandlerTitle}/>
+                  <input id="search2" label = "search" value={searchDesc} type="text" placeholder="search here for group" onChange={this.searchHandlerName}/>
               <a className="navbar-brand " href="#">M0n5ter Crawler</a>
               <Sidebar/>
               
@@ -84,7 +95,7 @@ render(){
                         </div>
                         <div key={article.date} id ="article_Date" className="card-subtitle mb-2 text-muted">{article.date}</div>
                         <div className ="groups">
-                          {article.groups.map((gr)=>(
+                          {article.groups.filter(searchingForNames(searchDesc)).map((gr)=>(
                             <div id="groups">
                               <div className="badge badge-success">
                                 <div key={gr.name} id ="group_Name" className="">{gr.name}
