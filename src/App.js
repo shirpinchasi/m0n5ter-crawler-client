@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import './App.scss';
 import "bootstrap";
-import Groups from "./Groups";
-import Feed from "./Feed";
-import SearchField from "./SearchField";
+import Groups from "./groups/Groups";
+import Feed from "./Feed/Feed";
 import { Route, BrowserRouter as Router, Switch, BrowserRouter,useHistory } from 'react-router-dom';
-import config from "./config/development"
-import Search_box from "./search-box"
+
 
 
 

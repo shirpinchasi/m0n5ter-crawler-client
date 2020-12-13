@@ -1,58 +1,43 @@
 import React, { Component } from 'react';
 import './App.scss';
 import "bootstrap";
-import Sidebar from './Sidebar';
-import config from "./config/development";
+import Sidebar from '../Feed/Sidebar';
+import config from "../config/development";
 
 
 
-function searchingForTitle(term){
-  return function(x){
-    return x.title.toLowerCase().includes(term.toLowerCase()) || !term;
-    
-  }
-}
-
-
-
-export default class Feed extends Component{
+export default class GroupId extends Component{
     constructor(props){
       super(props);
       this.state = {
           data : [],
           isLoading : true,
-          term : "",
-          
-      }; 
-      this.searchHandler = this.searchHandler.bind(this)
-    };
+        
+    }; 
+ };
 
-
-    componentDidMount(){
-      fetch(config.apiUrl,{
-        method : "GET",
-      })
-    .then(res => res.json())
-    .then(res => {
-        this.setState({
-           data :res._embedded.articles,
-           isLoading : false,
-        })
-      })
-      .catch((err =>{
-        console.error(err);
-      }));
-      
-};
-
-searchHandler(e){
-  this.setState({term :e.target.value})
-}
-
+ componentDidMount(){
+  fetch(config.apiUrl,{
+    method : "GET",
+  })
+.then(res => res.json())
+.then(res => {
+    this.setState({
+       data :res._embedded.articles,
+       isLoading : false,
+    })
+  })
+  .catch((err =>{
+    console.error(err);
+  }));
   
+};
+    
+
 render(){
-  const {isLoading , data , term} = (this.state);
-  return( 
+  const {isLoading , data} = (this.state);
+  return(
+          
             <div id="background">
                 {isLoading ? (
                   <div className="cssload-tetrominos">
@@ -65,27 +50,21 @@ render(){
                     
             <div className=" bg-dark text-white">   
               <div className ="navbar navbar-expand-lg mt-2 ">
-                  <input id="search" label = "search" value={term} type="text" placeholder="search here.." onChange={this.searchHandler}/>
+              
               <a className="navbar-brand " href="#">M0n5ter Crawler</a>
               <Sidebar/>
               
-            </div>
+</div>
             <div id="bg-dark"> 
-            {data.filter(searchingForTitle(term)).map((article)=>(
+           
+            {data.map((article)=>(
               
-              <div>
-                
-                <div id ="cards" className="col-12 col-md- col-sm-2 col-xs">
-                <div id = "articles" className="col">
-                  <div id = "backgroundTitle">
-                        <a href={"" + article.url} id ="article_Url" target="_blank" rel="noopener noreferrer" className="card link"><div key={article.title} id ="article_Title" className="row"> {article.title}</div></a>
-                        </div>
-                        <div key={article.date} id ="article_Date" className="card-subtitle mb-2 text-muted">{article.date}</div>
+                    <div>
                         <div className ="groups">
-                          {article.groups.map((gr)=>(
+                          {article.groups.filter((gr)=>(
                             <div id="groups">
                               <div className="badge badge-success">
-                                <div key={gr.name} id ="group_Name" className="">{gr.name}
+                                <div key={gr.id} id ="group_Name" className="">{gr.id}
                                 
                                   {/* <div id ="group_Id" className=""> ID: {gr.id} aliases:  {gr.aliases}</div> */}
                                   <div id ="group_Aliases" className="card-body"></div>
@@ -107,8 +86,6 @@ render(){
                         
                         </div> */}
               
-              </div>
-              </div>
               </div>
               </div>
               

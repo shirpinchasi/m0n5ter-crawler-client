@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.scss';
+import '../App.scss';
 import "bootstrap";
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
@@ -20,7 +20,7 @@ export default class Sidebar extends Component{
       fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc`,{
       method : "GET",
     })
-    .then(res => res.json(res))
+    .then(res => res.json())
       .then(res => {
         this.setState({
            data :res._embedded.articles,

@@ -1,14 +1,14 @@
 import React, { Component} from 'react';
-import './App.scss';
 import "./Groups.scss"
 import "bootstrap";
-import Sidebar from "./Sidebar";
-import config from "./config/development";
-import { Link } from 'react-router-dom';
-import GroupId from "./GroupId";
+import Sidebar from "../Feed/Sidebar";
 
-
-
+function searchingForTitle(term){
+  return function(x){
+     return x.name.toLowerCase().includes(term.toLowerCase()) || !term
+    
+  }
+}
 
 
 
@@ -18,46 +18,37 @@ export default class Groups extends Component{
       this.state = {
           data : [],
           isLoading : true,
-        
+          term : "",
     }; 
+    this.searchHandler = this.searchHandler.bind(this)
  };
 
     componentDidMount(){
-      fetch("https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc",{
+      fetch("https://m0n5ter-crawler.herokuapp.com/api/groups?sort=name",{
       method : "GET",
     })
-    .then(res => res.json(res))
+    .then(res => res.json())
       .then(res => {
-          const newData=[
-              ...res._embedded.articles.reduce((acc, item)=>{
-                  for (let group of item.groups){
-                      acc.add( group.name );
-                  }
-                  return acc;
-              },new Set())
-          ];
-          
-          console.log(newData);
-         
         this.setState({
-            data : newData,
+            data:res._embedded.groups,
            isLoading : false,
-            
-           
-        })
-        
+        });
       })
       .catch((err =>{
         console.error(err);
       }));
       
-    };
+};
+searchHandler(e){
+  this.setState({term :e.target.value})
+}
+
     
 
 render(){
-  const {isLoading, data} = (this.state);
+  const {isLoading, data,term} = (this.state);
   return(
-<div>   
+        <div>   
            {isLoading ? (
                <div className="cssload-tetrominos">
                <div className="cssload-tetromino cssload-box1"></div>
@@ -74,12 +65,14 @@ render(){
                     </div>
                     
                     <div className="d-flex justify-content-around">
+                    <input id="search" label = "search" value={term} type="text" placeholder="search here.." onChange={this.searchHandler}/>
                       <h1 className="groupHeader">Group Page</h1>
-                          {data.map((gr)=>(
+                          {data.filter(searchingForTitle(term)).map((group)=>(
                             <div className="d-flex">
-                                {console.log(gr)}
                               <div id="cards2" className="col-12 col-md- col-sm-2 col-xs">
-                               <Link to={`./GroupId`}><div key={gr} id ="group_Names">{gr}</div></Link>
+                               <div key={group.n} id ="group_Names">{group.name}
+                               </div>
+                               <div key={group.desc} id="group_desc">{group.description}</div>
                                
                               
                                   

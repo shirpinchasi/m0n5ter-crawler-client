@@ -2,12 +2,13 @@
 	width: auto;
 	height: auto;
 	overflow: auto;
-	background-image: url("pictures/black.jpg");
+	background-image: url("../pictures/black.jpg");
 }
+
 #cards2{
 	position: static;
 	width: 230px;
-	height: 40px;
+	height: 200px;
 	margin-bottom: 40px;
 	margin-top: 3%;
 	margin-left: 20px;
@@ -19,9 +20,73 @@
 	text-align: center;
 	font-size: large;
 }
-#cards::-webkit-scrollbar {
-	width: 10px;
+#cards2::-webkit-scrollbar {
+	overflow-y: hidden;
   }
+  @media screen and (max-width: 460px) {
+	#cards2 {
+	  margin-top: 5%;
+	  margin-left: 17%;
+	  
+	}
+	.navbar-brand{
+		
+		font-size: medium;
+		position: absolute;
+	}
+	.groupHeader{
+		margin-top: 15%;
+	}
+	#search{
+		position: absolute;
+		left: 25%;
+		top: 20%;
+		border-radius: 20px;
+	}
+	
+  }
+  @media screen and (max-width: 400px) {
+	.navbar-brand{
+		
+		font-size: x-small;
+		position: absolute;
+	}
+	#cards2 {
+		margin-top: 5%;
+		margin-left: 17%;
+	  }
+	
+  }
+  @media screen and (max-width: 630px) {
+	.navbar-brand{
+		right: 25%;
+		width: 150px;
+		font-size: medium;
+		position: absolute;
+	}
+	#cards2 {
+		margin-top: 5%;
+		margin-left: 24%;
+		
+	  }
+	  #search{
+		position: absolute;
+		left: 25%;
+		top: 20%;
+		border-radius: 20px;
+	}
+	.groupHeader{
+		margin-top: 15%;
+		margin-right: 5%;
+	}
+	
+  }
+  #search{
+	margin-left: 3%;
+	border-radius: 20px;
+}
+
+
   #group_Names{
 	  color: white;
   }
@@ -317,4 +382,13 @@
 .groupHeader{
 	color: white;
 	text-align: center;
+
+}
+#group_desc{
+	margin-top: 10%;
+}
+#group_Names{
+	font-size: x-large;
+	line-height: 50px;
+	border-bottom: 2px solid black;
 }

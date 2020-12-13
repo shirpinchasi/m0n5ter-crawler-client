@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import './App.scss';
+import '../App.scss';
 import "bootstrap";
-import Sidebar from './Sidebar';
-import config from "./config/development";
+import Sidebar from '../Feed/Sidebar';
+import config from "../config/development";
 
 
 
@@ -58,14 +58,13 @@ render(){
             <div id="bg-dark"> 
            
             {data.map((article)=>(
-              
                     <div>
                         <div className ="groups">
                           {article.groups.map((gr)=>(
                             <div id="groups">
                               <div className="badge badge-success">
                                 <div key={gr.id} id ="group_Name" className="">{gr.id}
-                                
+                                <div key={gr.description}>{gr.description}</div>
                                   {/* <div id ="group_Id" className=""> ID: {gr.id} aliases:  {gr.aliases}</div> */}
                                   <div id ="group_Aliases" className="card-body"></div>
                                   </div>

@@ -348,16 +348,44 @@
 }
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 460px) {
 	#cards {
 	  margin-top: 5%;
 	  margin-left: 17%;
 	  
 	}
 	.navbar-brand{
-		margin-left: 200px;
+		margin-left: 250px;
+		font-size: medium;
 		position: absolute;
 	}
+	
+  }
+  @media screen and (max-width: 400px) {
+	.navbar-brand{
+		margin-left: 230px;
+		font-size: x-small;
+		position: absolute;
+	}
+	#cards {
+		margin-top: 5%;
+		margin-left: 17%;
+		
+	  }
+	
+  }
+  @media screen and (max-width: 630px) {
+	.navbar-brand{
+		margin-left: 260px;
+		font-size: medium;
+		position: absolute;
+	}
+	#cards {
+		margin-top: 5%;
+		margin-left: 24%;
+		
+	  }
+	
   }
 .badge{
 	font-size: 15px;

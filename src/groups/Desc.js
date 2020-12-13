@@ -1,9 +1,9 @@
 import React, { Component} from 'react';
-import './App.scss';
+import '../App.scss';
 import "./Groups.scss"
 import "bootstrap";
-import Sidebar from "./Sidebar"
-import config from "./config/development"
+import Sidebar from "../Feed/Sidebar"
+import config from "../config/development"
 
 
 
@@ -14,32 +14,18 @@ export default class Desc extends Component{
       super(props);
       this.state = {
           data : [],
-          isLoading : true,
         
     }; 
  };
 
     componentDidMount(){
-      fetch("https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc",{
+      fetch("https://m0n5ter-crawler.herokuapp.com/api/groups?sort=desc",{
       method : "GET",
     })
-    .then(res => res.json(res))
+    .then(res => res.json())
       .then(res => {
-          const newData=[
-              ...res._embedded.articles.reduce((acc, item)=>{
-                  for (let group of item.groups){
-                      acc.add(group.description);
-                  }
-                  return acc;
-              },new Set())
-          ];
-          console.log(newData);
-         
         this.setState({
-            data : newData,
-           isLoading : false,
-            
-           
+            data : res._embedded.groups,
         })
         
       })
@@ -51,7 +37,7 @@ export default class Desc extends Component{
     
 
 render(){
-  const {isLoading, data} = (this.state);
+  const {data} = (this.state);
   return(
 <div>   
           
