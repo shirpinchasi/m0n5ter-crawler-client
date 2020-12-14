@@ -3,6 +3,8 @@ import "./Feed.scss"
 import "bootstrap";
 import Sidebar from './Sidebar';
 import config from "../config/development";
+import NavBar from "./navbar";
+import Loader from "../Loader/Loader"
 
 
 
@@ -11,22 +13,17 @@ function TitleFilter(searchTitle){
   return function(x){
      return x.title.toLowerCase().includes(searchTitle.toLowerCase()) || !searchTitle 
     
-  }
-}
-
-function groupsFilter(searchGroup){
-  return function(x){
-     return x.groups.toLowerCase().includes(searchGroup.toLowerCase()) || !searchGroup
-    
-  }
-}
+  };
+};
 
 function NameFilter(searchName){
   return function(x){
      return x.name.toLowerCase().includes(searchName.toLowerCase()) || !searchName
     
-  }
-}
+  };
+};
+
+
 
 
 
@@ -38,14 +35,15 @@ export default class Feed extends Component{
           data : [],
           isLoading : true,
           searchTitle : "",
-          searchGroup : "",
-          searchName : ""
+          searchName : "",
+        
+          
           
           
       }; 
-      this.TitleFilter = this.TitleFilter.bind(this)
-      this.NameFilter  = this.NameFilter.bind(this)
-      this.groupsFilter  = this.groupsFilter.bind(this)
+      this.TitleFilter = this.TitleFilter.bind(this);
+      this.NameFilter  = this.NameFilter.bind(this);
+      this.groupsFilter  = this.groupsFilter.bind(this);
     };
 
 
@@ -58,7 +56,8 @@ export default class Feed extends Component{
         this.setState({
            data :res._embedded.articles,
            isLoading : false,
-        })
+           
+        });
       })
       .catch((err =>{
         console.error(err);
@@ -68,38 +67,36 @@ export default class Feed extends Component{
 
 TitleFilter(e){
   this.setState({searchTitle :e.target.value})
-}
+};
 NameFilter(e){
   this.setState({searchName : e.target.value })
-}
+};
 groupsFilter(e){
   this.setState({searchGroup : e.target.value })
-}
+};
 
   
 render(){
-  const {isLoading , data , searchTitle,searchName,searchGroup} = (this.state);
+  const {isLoading , data , searchTitle , searchName} = (this.state);
  
   return( 
             <div id="background">
                 {isLoading ? (
-                  <div className="cssload-tetrominos">
-                    <div className="cssload-tetromino cssload-box1"></div>
-                    <div className="cssload-tetromino cssload-box2"></div>
-                    <div className="cssload-tetromino cssload-box3"></div>
-                    <div className="cssload-tetromino cssload-box4"></div>
-                  </div>
+                  <Loader/>
                   ) :(
                     
             <div className=" bg-dark text-white">   
-              <div className ="navbar navbar-expand-lg mt-2 ">
-                  <input id="search1" label = "search" value={searchTitle} type="text" placeholder="search here for title" onChange={this.TitleFilter}/>
-                  <input id="search2" label = "search" value={searchName} type="text" placeholder="search here for name" onChange={this.NameFilter}/>
-                  {/* <input id="search2" label = "search" value={searchGroup} type="text" placeholder="search here for group" onChange={this.groupsFilter}/> */}
-              <a className="navbar-brand " href="#">M0n5ter Crawler</a>
-              <Sidebar/>
+              <NavBar>
+                  <input id="search3" label = "search" value={searchTitle} type="text" placeholder="search here for title" onChange={this.TitleFilter}/>
+                  <input id="search4" label = "search" value={searchName} type="text" placeholder="search here for name" onChange={this.NameFilter}/>
+              </NavBar>
+                  
+                 
               
-          </div>
+              
+              
+          
+         
             <div id="bg-dark"> 
             {data.filter(TitleFilter(searchTitle)).map((article) => article.groups.filter(NameFilter(searchName)).map((gr)=>(
               <div>
@@ -124,20 +121,7 @@ render(){
                                      <div id ="group_Last_Scan" className="card-body">group last scan : {gr.lastScan}</div> */}
                                   
                               </div>
-                    </div>        
-))
-            
-              
-              
-              
-                        {/* <div className="card">
-                            <a href ={"" + article.url} id ="article_Url" target="_blank" rel="noopener noreferrer" className="card link"> website link</a><br/>
-                            <a href = {article._links.self.href} id="article_linksHref" target="_blank"  rel="noopener noreferrer" className="card link">  json link</a><br/>
-                            <a href = {article._links.article.href} id="article_Href" target="_blank"  rel="noopener noreferrer" className="card link"> db link</a><br/>
-                            <a href = {article._links.groups.href} id="article_GroupsHref" target="_blank"  rel="noopener noreferrer" className="card link"> group db link</a>
-                        
-                        </div> */}
-              
+                    </div>   
               </div>
               </div>
               </div>

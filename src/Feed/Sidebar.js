@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../App.scss';
+import "./SideBar.scss"
 import "bootstrap";
 import { BrowserRouter as Router, Link } from 'react-router-dom';
 
@@ -56,12 +56,7 @@ render(){
                     <ul>
                     <li><a><Link to= "/" alt ="/" ><i className="fa fa-home"></i>Home</Link></a></li>
                     <li><a><Link to= "./Groups" alt ="Groups" ><i className="fa fa-users"></i>Groups</Link></a></li>
-                    <li><a href="#"><i className="fa fa-info"></i>About</a></li>
-                    <li><a href="#"><i className="fas fa-stream"></i>Overview</a></li>
-                    <li><a href="#"><i className="fas fa-calendar-week"></i>Events</a></li>
-                    <li><a href="#"><i className="far fa-question-circle"></i>About</a></li>
-                    <li><a href="#"><i className="fas fa-sliders-h"></i>Services</a></li>
-                    <li><a href="#"><i className="far fa-envelope"></i>Contact</a></li>
+                    
                     
                     </ul>
                             

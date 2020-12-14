@@ -284,7 +284,7 @@
 	margin-top: 2%;
 	margin-left: 20px;
 	border-radius: 10%;
-	background: radial-gradient(circle, rgba(33,33,33,1) 69%, rgba(2,90,4,1) 100%);
+	background:linear-gradient(#232526,#414345);
 	box-shadow: 3px 4px 8px 6px rgba(4, 5, 75, 0.2), 0 6px 20px 0 rgba(49, 23, 23, 0.19);
 	
 	
@@ -315,33 +315,16 @@
 	margin-top: 5%;
 }
 #group_Id{
-	margin-top: 5%;
-	
+    margin-top: 5%;
+    width: 180px;
 }
 
-#group_Aliases{
-	margin-top: 5%;
-}
-.navbar{
-	background: linear-gradient(90deg, rgba(33,33,33,1) 0%, rgba(2,90,4,1) 49%, rgba(33,33,33,1) 100%);
-	margin-bottom: 0;
-	position: sticky;
-	overflow: hidden;
-	top: 0;
-	z-index: 1;
-}
-.navbar-brand{
-	position: absolute;
-	top: 0%;
-	font-size: x-large;
-	margin-left: 45%;
-	color: white;
-}
+
 #bg-dark{
 	width: auto;
-	height:auto;
-	
-	background-image: url("../pictures/black.jpg");
+    height:auto;
+    overflow: auto;
+	background-image: url("../pictures/brick1.jpg");
 }
 
 
@@ -351,19 +334,9 @@
 	  margin-left: 17%;
 	  
 	}
-	.navbar-brand{
-		margin-left: 250px;
-		font-size: medium;
-		position: absolute;
-	}
 	
   }
   @media screen and (max-width: 400px) {
-	.navbar-brand{
-		margin-left: 230px;
-		font-size: x-small;
-		position: absolute;
-	}
 	#cards {
 		margin-top: 5%;
 		margin-left: 17%;
@@ -372,11 +345,6 @@
 	
   }
   @media screen and (max-width: 630px) {
-	.navbar-brand{
-		margin-left: 260px;
-		font-size: medium;
-		position: absolute;
-	}
 	#cards {
 		margin-top: 5%;
 		margin-left: 24%;
@@ -393,106 +361,19 @@
 .input{
 	border-radius: 20px;
 }
-
- 
-  .sidebar {
-	position: fixed;
-	left: -250px;
-	width: 250px;
-	height: 100%;
-	background: linear-gradient(90deg, rgba(33,33,33,1) 0%, rgba(2,90,4,1) 49%, rgba(33,33,33,1) 100%);
-	transition: all .5s ease;
-	top: 0;
-  }
-  .sidebar header {
-	font-size: 22px;
-	color: white;
-	line-height: 70px;
-	text-align: center;
-	background: linear-gradient(90deg, rgba(33,33,33,1) 0%, rgba(2,90,4,1) 49%, rgba(33,33,33,1) 100%);
-	user-select: none;
-  }
-  .sidebar ul a{
-	display: block;
-	height: 100%;
-	width: 100%;
-	line-height: 65px;
-	font-size: 20px;
-	color: white;
-	
-	box-sizing: border-box;
-	
-	border-top: 1px solid rgba(255,255,255,.1);
-	transition: .4s;
-  }
-  ul li:hover a{
-	padding-left: 5px;
-  }
-  .sidebar ul a i{
-	margin-right: 16px;
-  }
-  #check{
-	display: none;
-  }
-  label #btn,label #cancel{
-	position: absolute;
-	background: linear-gradient(90deg, rgba(33,33,33,1) 0%, rgba(2,90,4,1) 49%, rgba(33,33,33,1) 100%);
-	border-radius: 3px;
-	cursor: pointer;
-  }
-  label #btn{
-	left: 10px;
-	position: absolute;
-	top: 0;
-	font-size: 35px;
-	color: white;
-	padding: 6px 12px;
-	transition: all .5s;
-  }
-  label #cancel{
-	z-index: 1111;
-	left: -195px;
-	top: 0px;
-	margin-left: 13px;
-	font-size: 30px;
-	color: black;
-	padding: 4px 9px;
-	transition: all .5s ease;
-  }
-  #check:checked ~ .sidebar{
-	left: 0;
-  }
-  #check:checked ~ label #btn{
-	left: 250px;
-	opacity: 0;
-	pointer-events: none;
-  }
-  #check:checked ~ label #cancel{
-	left: 195px;
-  }
-  #check:checked ~ section{
-	margin-left: 250px;
-  }
-  section{
-	background: black no-repeat;
-	background-position: center;
-	background-size: cover;
-	height: 100vh;
-	transition: all .5s;
-  }
-  #search1{
+  #search3{
 	border-radius: 50px;
 	width: 170px;
 	position: absolute;
-	margin-top: 10px;
+	z-index: 1;
 	left: 100px;
     text-align: center;
     color: black;
   }
-  #search2{
+  #search4{
 	border-radius: 50px;
 	width: 170px;
-	position: absolute;
+	position: relative;
 	margin-top: 10px;
 	left: 290px;
     text-align: center;

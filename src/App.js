@@ -3,6 +3,7 @@ import './App.scss';
 import "bootstrap";
 import Groups from "./groups/Groups";
 import Feed from "./Feed/Feed";
+import Loader from "./Loader/Loader"
 import { Route, BrowserRouter as Router, Switch, BrowserRouter,useHistory } from 'react-router-dom';
 
 
@@ -37,26 +38,18 @@ export default class App extends Component{
      
 
 render(){
-  const {isLoading , data} = (this.state);
+  const {isLoading} = (this.state);
   
   return(
           
               <div id="background">
                 {isLoading ? (
-                  <div className="cssload-tetrominos">
-                    <div className="cssload-tetromino cssload-box1"></div>
-                    <div className="cssload-tetromino cssload-box2"></div>
-                    <div className="cssload-tetromino cssload-box3"></div>
-                    <div className="cssload-tetromino cssload-box4"></div>
-                  </div>
+                  <Loader/>
                   ) :(
                     <div>
                       <BrowserRouter history={useHistory}>
                       
                       <Switch>  
-                      {/* <Route path="/GroupId:id">
-                            <GroupDetail />
-                        </Route> */}
                         <Route path="/Groups">
                             <Groups Component={Groups}/>
                         </Route>
