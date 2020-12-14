@@ -4,18 +4,41 @@
 	overflow: auto;
 	background-image: url("../pictures/black.jpg");
 }
+
+.lastScan{
+border: 3px solid black;
+margin-top: 25%;
+}
 .groupHeader{
 	color: white;
 	text-align: center;
 }
-#group_desc{
-	margin-top: 10%;
+#scroll_desc{
+	overflow-y: auto;
+	border: 3px solid black;
+	#group_desc{
+		
+		height: 70px;
+		overflow-y:auto;
+	}
+	#group_desk::-webkit-scrollbar {
+		display: none;
+	  }
 }
+
 #group_Names{
 	font-size: x-large;
 	line-height: 50px;
 	border-bottom: 2px solid black;
+	
 }
+.tooltip{
+	position: relative;
+	display: inline-block;
+	border-bottom: 1px dotted black;
+}
+
+
 
 #cards2{
 	position: static;
@@ -28,12 +51,13 @@
 	background:linear-gradient(#232526,#414345);
 	box-shadow: 3px 4px 8px 6px rgba(4, 5, 75, 0.2), 0 6px 20px 0 rgba(49, 23, 23, 0.19);
 	color: white;
-	overflow-y: auto;
 	text-align: center;
 	font-size: large;
+	overflow-y: auto;
+	
 }
 #cards2::-webkit-scrollbar {
-	overflow-y: hidden;
+	overflow-y: auto;
   }
 #search1{
 	margin-left: 3%;
@@ -53,16 +77,15 @@
 #group_lastScan{
 	margin-right: 3%;
 	border-top: 2px solid black;
-	margin-top: 5%;
+	border: 2px solid red;
 }
 
 
   #group_Names{
 	  color: white;
   }
-  #group_aliases{
-	  width: 180px;
-  }
+  
+  
 
   @media screen and (max-width: 460px) {
 	#cards2 {

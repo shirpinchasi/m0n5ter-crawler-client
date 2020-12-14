@@ -293,30 +293,27 @@
 	padding-top: 5%;
 	line-height: 30px;
 	font-size: 18px;
+	height: 60px;
+	text-align: center;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	color: white;
-}
-#backgroundTitle{
-	text-align: center;
-	
 }
 #article_Date{
 	text-align:center;
 	color: lightslategray;
 }
-#groups{
-	font-family: "Georgia, serif";
-	font-size: 17px;
-	color: white;
+#date_name_center{
 	text-align: center;
-}
-#group_Name{
-	color: white;
-	margin-top: 5%;
-}
-#group_Id{
-    margin-top: 5%;
-    width: 180px;
+	margin-top: 80%;
+	#group_Name{
+		color: white;
+		width: auto;
+		height: 20px;
+		margin-top: 5%;
+	}
+	#group_Id{
+		width: 180px;
+	}
 }
 
 

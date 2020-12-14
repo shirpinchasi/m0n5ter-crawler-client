@@ -98,16 +98,24 @@ render(){
                           {data.filter(nameFilter(searchName)).filter(descFilter(searchDesc)).map((group)=>(
                             <div className="d-flex">
                               <div id="cards2" className="col-12 col-md- col-sm-2 col-xs">
-                                
-                               <div key={group.n} id ="group_Names">{group.name}</div>
-                               <div key={group.desc} id="group_desc">{group.description}</div>
-                               <div key={group.alias} id="group_aliases">{group.aliases}</div>
-                               <div key={group.last_scan} id="group_lastScan"> last scan : {group.lastScan}</div>
-                               
+                              <div id="groups">
+                                  <div key={group.n} id ="group_Names">{group.name}</div>
+                                  <div id="scroll_desc">
+                                      <div key={group.desc} id="group_desc">{group.description}</div>
+                                  </div>
+                                  <div id="scroll_alias">
+                                      
+                                      <div key={group.alias} id="group_aliases">{group.aliases}</div>
+                                  </div>
+                                    <div className="lastScan">
+                                        <div key={group.last_scan} id="group_lastScan"> last scan : {group.lastScan}</div>
+                                  </div>
+                               </div>
+                               </div>
                               
                                   
                               </div>
-                          </div>   
+                        
                                          
               ))}
               
