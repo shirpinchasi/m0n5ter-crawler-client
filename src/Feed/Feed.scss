@@ -276,9 +276,6 @@
 	}
 }
 
-
-
-
 #cards{
 	position: static;
 	width: 230px;
@@ -344,7 +341,7 @@
 	width: auto;
 	height:auto;
 	
-	background-image: url("pictures/black.jpg");
+	background-image: url("../pictures/black.jpg");
 }
 
 
@@ -485,19 +482,19 @@
   }
   #search1{
 	border-radius: 50px;
-	width: 13px;
+	width: 170px;
 	position: absolute;
 	margin-top: 10px;
-	left: 150px;
-	color: white;
-	text-align: center;
+	left: 100px;
+    text-align: center;
+    color: black;
   }
   #search2{
 	border-radius: 50px;
-	width: 130px;
+	width: 170px;
 	position: absolute;
 	margin-top: 10px;
-	left: 150px;
-	color: white;
-	text-align: center;
+	left: 290px;
+    text-align: center;
+    color: black;
   }

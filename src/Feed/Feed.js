@@ -1,20 +1,29 @@
 import React, { Component } from 'react';
-import '../App.scss';
+import "./Feed.scss"
 import "bootstrap";
 import Sidebar from './Sidebar';
 import config from "../config/development";
 
 
 
-function searchingForTitle(term){
+
+function TitleFilter(searchTitle){
   return function(x){
-     return x.title.toLowerCase().includes(term.toLowerCase()) || !term
+     return x.title.toLowerCase().includes(searchTitle.toLowerCase()) || !searchTitle 
     
   }
 }
-function searchingForNames(searchDesc){
+
+function groupsFilter(searchGroup){
   return function(x){
-     return x.name.toLowerCase().includes(searchDesc.toLowerCase()) || !searchDesc
+     return x.groups.toLowerCase().includes(searchGroup.toLowerCase()) || !searchGroup
+    
+  }
+}
+
+function NameFilter(searchName){
+  return function(x){
+     return x.name.toLowerCase().includes(searchName.toLowerCase()) || !searchName
     
   }
 }
@@ -28,18 +37,20 @@ export default class Feed extends Component{
       this.state = {
           data : [],
           isLoading : true,
-          term : "",
-          searchDesc : ""
+          searchTitle : "",
+          searchGroup : "",
+          searchName : ""
           
           
       }; 
-      this.searchHandlerTitle = this.searchHandlerTitle.bind(this)
-      this.searchHandlerName  = this.searchHandlerName.bind(this)
+      this.TitleFilter = this.TitleFilter.bind(this)
+      this.NameFilter  = this.NameFilter.bind(this)
+      this.groupsFilter  = this.groupsFilter.bind(this)
     };
 
 
     componentDidMount(){
-      fetch(config.apiUrl,{
+      fetch(config.apiUrl + config.articleSort,{
         method : "GET",
       })
     .then(res => res.json())
@@ -55,16 +66,19 @@ export default class Feed extends Component{
       
 };
 
-searchHandlerTitle(e){
-  this.setState({term :e.target.value})
+TitleFilter(e){
+  this.setState({searchTitle :e.target.value})
 }
-searchHandlerName(e){
-  this.setState({searchDesc : e.target.value })
+NameFilter(e){
+  this.setState({searchName : e.target.value })
+}
+groupsFilter(e){
+  this.setState({searchGroup : e.target.value })
 }
 
   
 render(){
-  const {isLoading , data , term,searchDesc} = (this.state);
+  const {isLoading , data , searchTitle,searchName,searchGroup} = (this.state);
  
   return( 
             <div id="background">
@@ -79,23 +93,25 @@ render(){
                     
             <div className=" bg-dark text-white">   
               <div className ="navbar navbar-expand-lg mt-2 ">
-                  <input id="search1" label = "search" value={term} type="text" placeholder="search here for title" onChange={this.searchHandlerTitle}/>
-                  <input id="search2" label = "search" value={searchDesc} type="text" placeholder="search here for group" onChange={this.searchHandlerName}/>
+                  <input id="search1" label = "search" value={searchTitle} type="text" placeholder="search here for title" onChange={this.TitleFilter}/>
+                  <input id="search2" label = "search" value={searchName} type="text" placeholder="search here for name" onChange={this.NameFilter}/>
+                  {/* <input id="search2" label = "search" value={searchGroup} type="text" placeholder="search here for group" onChange={this.groupsFilter}/> */}
               <a className="navbar-brand " href="#">M0n5ter Crawler</a>
               <Sidebar/>
               
           </div>
             <div id="bg-dark"> 
-            {data.filter(searchingForTitle(term)).map((article)=>(
+            {data.filter(TitleFilter(searchTitle)).map((article) => article.groups.filter(NameFilter(searchName)).map((gr)=>(
               <div>
                 <div id ="cards" className="col-12 col-md- col-sm-2 col-xs">
                 <div id = "articles" className="col">
                   <div id = "backgroundTitle">
-                        <a href={"" + article.url} id ="article_Url" target="_blank" rel="noopener noreferrer" className="card link"><div key={article.title} id ="article_Title" className="row"> {article.title}</div></a>
+                        <a href={config.apiUrl +"/" + article.id+"/content"} id ="article_Url" target="_blank" rel="noopener noreferrer" className="card link"><div key={article.title} id ="article_Title" className="row"> {article.title}</div></a>
                         </div>
+                        
                         <div key={article.date} id ="article_Date" className="card-subtitle mb-2 text-muted">{article.date}</div>
+                        
                         <div className ="groups">
-                          {article.groups.filter(searchingForNames(searchDesc)).map((gr)=>(
                             <div id="groups">
                               <div className="badge badge-success">
                                 <div key={gr.name} id ="group_Name" className="">{gr.name}
@@ -108,8 +124,10 @@ render(){
                                      <div id ="group_Last_Scan" className="card-body">group last scan : {gr.lastScan}</div> */}
                                   
                               </div>
-                          </div>        
-              ))}
+                    </div>        
+))
+            
+              
               
               
                         {/* <div className="card">
@@ -126,8 +144,9 @@ render(){
               </div>
               
               
-              ))
-            }  
+            ))
+             ) }  
+
             </div>
             </div>
             

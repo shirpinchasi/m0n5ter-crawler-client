@@ -2,19 +2,28 @@ import React, { Component} from 'react';
 import "./Groups.scss"
 import "bootstrap";
 import Sidebar from "../Feed/Sidebar";
+import config from "../config/development"
 
-function searchingForTitle(term){
+
+
+function nameFilter(searchName){
   return function(x){
-     return x.name.toLowerCase().includes(term.toLowerCase()) || !term
+     return x.name.toLowerCase().includes(searchName.toLowerCase()) || !searchName
     
   }
 }
-function searchingForDesc(searchDesc){
+function descFilter(searchDesc){
   return function(x){
      return x.description.toLowerCase().includes(searchDesc.toLowerCase()) || !searchDesc
     
   }
 }
+// function searchingForAliases(searchAlias){
+//   return function(x){
+//      return x.aliases.toLowerCase().includes(searchAlias.toLowerCase()) || !searchAlias
+    
+//   }
+// }
 
 
 
@@ -25,16 +34,18 @@ export default class Groups extends Component{
       this.state = {
           data : [],
           isLoading : true,
-          term : "",
-          searchDesc:""
+          searchName : "",
+          searchDesc:"",
+          // searchAlias : "",
     }; 
-    this.searchHandlerName  = this.searchHandlerName.bind(this)
-    this.searchHandlerDesc  = this.searchHandlerDesc.bind(this)
+    this.nameFilter  = this.nameFilter.bind(this)
+    this.descFilter = this.descFilter.bind(this)
+    
  
  };
 
     componentDidMount(){
-      fetch("https://m0n5ter-crawler.herokuapp.com/api/groups?sort=name",{
+      fetch(config.apiSortName,{
       method : "GET",
     })
     .then(res => res.json())
@@ -49,17 +60,20 @@ export default class Groups extends Component{
       }));
       
 };
-searchHandlerName(e){
-  this.setState({term :e.target.value})
+nameFilter(e){
+  this.setState({searchName:e.target.value})
 }
-searchHandlerDesc(e){
+descFilter(e){
   this.setState({searchDesc : e.target.value })
 }
+// searchHandlerAliases(e){
+//   this.setState({searchAlias : e.target.value })
+// }
 
     
 
 render(){
-  const {isLoading, data,term, searchDesc} = (this.state);
+  const {isLoading, data,searchName, searchDesc} = (this.state);
   return(
         <div>   
            {isLoading ? (
@@ -78,15 +92,16 @@ render(){
                     </div>
                     
                     <div className="d-flex justify-content-around">
-                    <input  id="search1" label = "search" value={term} type="text" placeholder="search here for name " onChange={this.searchHandlerName}/>
-                    <input id="search2" label = "search" value={searchDesc} type="text" placeholder="search here for description" onChange={this.searchHandlerDesc}/>
+                    <input  id="search1" label = "search" value={searchName} type="text" placeholder="search here for name " onChange={this.nameFilter }/>
+                    <input id="search2" label = "search" value={searchDesc} type="text" placeholder="search here for description" onChange={this.descFilter}/>
                       <h1 className="groupHeader">Group Page</h1>
-                          {data.filter(searchingForTitle(term)).filter(searchingForDesc(searchDesc)).map((group)=>(
+                          {data.filter(nameFilter(searchName)).filter(descFilter(searchDesc)).map((group)=>(
                             <div className="d-flex">
                               <div id="cards2" className="col-12 col-md- col-sm-2 col-xs">
                                <div key={group.n} id ="group_Names">{group.name}
                                </div>
                                <div key={group.desc} id="group_desc">{group.description}</div>
+                               <div key={group.alias} id="group_aliases">{group.aliases}</div>
                                
                               
                                   
