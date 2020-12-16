@@ -6,25 +6,25 @@
 }
 
 .lastScan{
-border: 3px solid black;
-margin-top: 25%;
+
+margin-top: 20%;
 }
 .groupHeader{
 	color: white;
 	text-align: center;
 }
 #scroll_desc{
+	margin-top: 10%;
 	overflow-y: auto;
-	border: 3px solid black;
-	#group_desc{
-		
-		height: 70px;
+	#group_desc{	
+		height: 120px;
 		overflow-y:auto;
 	}
-	#group_desk::-webkit-scrollbar {
+	#group_desc::-webkit-scrollbar {
 		display: none;
 	  }
 }
+
 
 #group_Names{
 	font-size: x-large;
@@ -32,13 +32,6 @@ margin-top: 25%;
 	border-bottom: 2px solid black;
 	
 }
-.tooltip{
-	position: relative;
-	display: inline-block;
-	border-bottom: 1px dotted black;
-}
-
-
 
 #cards2{
 	position: static;
@@ -62,6 +55,7 @@ margin-top: 25%;
 #search1{
 	margin-left: 3%;
 	width: 200px;
+	margin-top: 2%;
 	border-radius: 20px;
 	color: black;
 	text-align: center;
@@ -77,7 +71,7 @@ margin-top: 25%;
 #group_lastScan{
 	margin-right: 3%;
 	border-top: 2px solid black;
-	border: 2px solid red;
+	
 }
 
 

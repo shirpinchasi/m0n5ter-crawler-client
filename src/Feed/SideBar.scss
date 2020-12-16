@@ -1,85 +1,85 @@
-.sidebar {
-	position: fixed;
-	left: -250px;
-	width: 250px;
-	height: 100%;
-	background: linear-gradient(#000000,#434343);
-	transition: all .5s ease;
-	top: 0;
-  }
-  .sidebar header {
-	font-size: 22px;
-	color: white;
-	line-height: 70px;
-	text-align: center;
-	background:black ;
-	user-select: none;
-  }
-  .sidebar ul a{
-	display: block;
-	height: 100%;
-	width: 100%;
-	line-height: 65px;
-	font-size: 20px;
-	color: white;
-	box-sizing: border-box;
-	border-top: 1px solid rgba(255,255,255,.1);
-	transition: .4s;
-  }
+// .sidebar {
+// 	position: fixed;
+// 	left: -250px;
+// 	width: 250px;
+// 	height: 100%;
+// 	background: linear-gradient(#000000,#434343);
+// 	transition: all .5s ease;
+// 	top: 0;
+//   }
+//   .sidebar header {
+// 	font-size: 22px;
+// 	color: white;
+// 	line-height: 70px;
+// 	text-align: center;
+// 	background:black ;
+// 	user-select: none;
+//   }
+//   .sidebar ul a{
+// 	display: block;
+// 	height: 100%;
+// 	width: 100%;
+// 	line-height: 65px;
+// 	font-size: 20px;
+// 	color: white;
+// 	box-sizing: border-box;
+// 	border-top: 1px solid rgba(255,255,255,.1);
+// 	transition: .4s;
+//   }
   
-  ul li:hover a{
-	padding-left: 5px;
-  }
-  .sidebar ul a i{
-	margin-right: 16px;
-  }
-  #check{
-	display: none;
-  }
-  label #btn,label #cancel{
-	position: absolute;
-	border-radius: 3px;
-	background-color: none;
-	cursor: pointer;
-  }
-  label #btn{
-	left: 10px;
-	position: absolute;
-	top: 0;
-	font-size: 35px;
-	color: white;
+//   ul li:hover a{
+// 	padding-left: 5px;
+//   }
+//   .sidebar ul a i{
+// 	margin-right: 16px;
+//   }
+//   #check{
+// 	display: none;
+//   }
+//   label #btn,label #cancel{
+// 	position: absolute;
+// 	border-radius: 3px;
+// 	background-color: none;
+// 	cursor: pointer;
+//   }
+//   label #btn{
+// 	left: 10px;
+// 	position: absolute;
+// 	top: 0;
+// 	font-size: 35px;
+// 	color: white;
 	
-	padding: 6px 12px;
-	transition: all .5s;
-  }
-  label #cancel{
-	z-index: 1111;
-	left: -195px;
-	top: 0px;
-	margin-left: 13px;
-	font-size: 30px;
-    color: white;
-	padding: 4px 9px;
-	transition: all .5s ease;
-  }
-  #check:checked ~ .sidebar{
-	left: 0;
-  }
-  #check:checked ~ label #btn{
-	left: 250px;
-	opacity: 0;
-	pointer-events: none;
-  }
-  #check:checked ~ label #cancel{
-	left: 195px;
-  }
-  #check:checked ~ section{
-	margin-left: 250px;
-  }
-  section{
-	background: black no-repeat;
-	background-position: center;
-	background-size: cover;
-	height: 100vh;
-	transition: all .5s;
-  }
+// 	padding: 6px 12px;
+// 	transition: all .5s;
+//   }
+//   label #cancel{
+// 	z-index: 1111;
+// 	left: -195px;
+// 	top: 0px;
+// 	margin-left: 13px;
+// 	font-size: 30px;
+//     color: white;
+// 	padding: 4px 9px;
+// 	transition: all .5s ease;
+//   }
+//   #check:checked ~ .sidebar{
+// 	left: 0;
+//   }
+//   #check:checked ~ label #btn{
+// 	left: 250px;
+// 	opacity: 0;
+// 	pointer-events: none;
+//   }
+//   #check:checked ~ label #cancel{
+// 	left: 195px;
+//   }
+//   #check:checked ~ section{
+// 	margin-left: 250px;
+//   }
+//   section{
+// 	background: black no-repeat;
+// 	background-position: center;
+// 	background-size: cover;
+// 	height: 100vh;
+// 	transition: all .5s;
+//   }

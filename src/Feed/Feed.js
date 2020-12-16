@@ -102,12 +102,12 @@ render(){
               <div>
                 <div id ="cards" className="col-12 col-md- col-sm-2 col-xs">
                   <div id = "backgroundTitle">
-                        <a href={config.apiUrl +"/" + article.id+"/content"} id ="article_Url" target="_blank" rel="noopener noreferrer" className="card link"><div key={article.title} id ="article_Title" className="row"> {article.title}</div></a>
+                        <a href={config.apiUrl +"/" + article.id+"/content"} id ="article_Url" target="_blank" rel="noopener noreferrer" className="card link"><div key={article.tit} id ="article_Title" className="row"> {article.title}</div></a>
                         </div>
                         <div id="date_name_center">
-                        <div key={article.date} id ="article_Date" className="card-subtitle mb-2 text-muted">{article.date}</div>
+                        <div key={article.da} id ="article_Date" className="card-subtitle mb-2 text-muted">{article.date}</div>
                               <div className="badge badge-success">
-                                <div key={gr.name} id ="group_Name" className="">{gr.name}</div>
+                                <div key={gr.n} id ="group_Name" className="">{gr.name}</div>
                               </div>
                         </div>
                         

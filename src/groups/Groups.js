@@ -101,12 +101,13 @@ render(){
                               <div id="groups">
                                   <div key={group.n} id ="group_Names">{group.name}</div>
                                   <div id="scroll_desc">
-                                      <div key={group.desc} id="group_desc">{group.description}</div>
+                                      <div key={group.desc} id="group_desc">{group.description} <a id="show-more" className="show-less"></a>
+                                      <a id="show-less" className="show-more"></a></div>
                                   </div>
-                                  <div id="scroll_alias">
+                                  {/* <div id="scroll_alias">
                                       
                                       <div key={group.alias} id="group_aliases">{group.aliases}</div>
-                                  </div>
+                                  </div> */}
                                     <div className="lastScan">
                                         <div key={group.last_scan} id="group_lastScan"> last scan : {group.lastScan}</div>
                                   </div>

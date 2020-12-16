@@ -1,70 +1,69 @@
-import React, { Component } from 'react';
-import "./SideBar.scss"
-import "bootstrap";
-import { BrowserRouter as Router, Link } from 'react-router-dom';
+// import React, { Component } from 'react';
+// import "./SideBar.scss"
+// import "bootstrap";
+// import { BrowserRouter as Router, Link } from 'react-router-dom';
 
 
 
-export default class Sidebar extends Component{
-    constructor(props){
-      super(props);
-      this.state = {
-          data : [],
-          searchTerm : ""
+// export default class Sidebar extends Component{
+//     constructor(props){
+//       super(props);
+//       this.state = {
+//           data : [],
+//           searchTerm : ""
           
         
-    }; 
- };
+//     }; 
+//  };
 
-    componentDidMount(){
-      fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc`,{
-      method : "GET",
-    })
-    .then(res => res.json())
-      .then(res => {
-        this.setState({
-           data :res._embedded.articles,
-           isLoading : false,
-        })
-      })
-      .catch((err =>{
-        console.error(err);
-      }));
+//     componentDidMount(){
+//       fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc`,{
+//       method : "GET",
+//     })
+//     .then(res => res.json())
+//       .then(res => {
+//         this.setState({
+//            data :res._embedded.articles,
+//            isLoading : false,
+//         })
+//       })
+//       .catch((err =>{
+//         console.error(err);
+//       }));
       
-    };
+//     };
     
      
 
-render(){
-  const {data} = this.state;
+// render(){
+//   const {data} = this.state;
   
-  return(
-    <div>
-            <div>
+//   return(
+//     <div>
+//             <div>
              
-            <input type="checkbox" id="check"/>
-            <label htmlFor="check">
-            <i className="fa fa-bars" id="btn"></i>
-            <i className="fa fa-times" id="cancel"></i>
-            </label>
+//             <input type="checkbox" id="check"/>
+//             <label htmlFor="check">
+//             <i className="fa fa-bars" id="btn"></i>
+//             <i className="fa fa-times" id="cancel"></i>
+//             </label>
               
-                <div className="sidebar">
+//                 <div className="sidebar">
                   
                         
                             
                             
-                    <ul>
-                    <li><a><Link to= "/" alt ="/" ><i className="fa fa-home"></i>Home</Link></a></li>
-                    <li><a><Link to= "./Groups" alt ="Groups" ><i className="fa fa-users"></i>Groups</Link></a></li>
+//                     <ul>
                     
                     
-                    </ul>
+                    
+//                     </ul>
                             
-             </div>
-        </div>
+//              </div>
+//         </div>
             
               
-    </div>  
-    )
-  }
-}
+//     </div>  
+//     )
+//   }
+// }

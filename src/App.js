@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import "bootstrap";
+import BarChart from "./BarChart";
 import Groups from "./groups/Groups";
 import Feed from "./Feed/Feed";
 import Loader from "./Loader/Loader"
@@ -50,6 +51,9 @@ render(){
                       <BrowserRouter history={useHistory}>
                       
                       <Switch>  
+                      <Route path="/BarChart">
+                            <BarChart Component={BarChart}/>
+                        </Route>
                         <Route path="/Groups">
                             <Groups Component={Groups}/>
                         </Route>
