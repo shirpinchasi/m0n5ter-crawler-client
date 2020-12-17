@@ -1,0 +1,56 @@
+#bgColor{
+    background: url("../pictures/white.jpg");
+    width: auto;
+    height: 1000px;
+}
+.title{
+    color: black;
+    text-align: center;
+    margin-bottom: 5%;
+    font-size: 20px;
+    font-weight: bold;
+
+}
+#pieChart{
+    background-color: white;
+    margin-top: 2%;
+    margin-left: 2%;
+    box-shadow: 10px 10px 10px 8px #888888;
+    width: 450px;
+    height: 300px;
+}
+#ajustMonth{
+    position: relative;
+    
+}
+#ajustYear{
+    position: relative;
+    
+}
+@media screen and (min-width : 1100px){
+    #ajustMonth{
+       margin-left: 45%;
+       bottom: 31%;
+    }
+    #ajustYear{
+        margin-left: 20%;
+        bottom: 29%;
+    }
+ }
+
+@media screen and (max-width : 680px){
+    #ajustMonth{
+       width: 300px;
+       height: 300px;
+    }
+    #ajustYear{
+        width: 1000px;
+        height: 300px;
+        margin-top: 5%;
+    
+     }
+}
+
+
+
+

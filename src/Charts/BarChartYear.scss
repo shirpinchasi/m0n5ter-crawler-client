@@ -1,0 +1,15 @@
+#BarChartYear{
+    background-color: white;
+    margin-top: 2%;
+    margin-left: 2%;
+    box-shadow: 10px 10px 10px 8px #888888;
+    width: 450px;
+    height: 300px;
+}
+@media screen and (min-width : 1100px){
+    #BarChartYear{
+       width: 800px;
+       height: 500px;
+    }
+ }
+

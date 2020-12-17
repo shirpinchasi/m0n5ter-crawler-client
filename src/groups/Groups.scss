@@ -62,12 +62,13 @@ margin-top: 20%;
 }
 
 #search2{
-	margin-left: 2%;
+	margin-left: 3%;
 	width: 200px;
 	border-radius: 20px;
 	color: black;
 	text-align: center;
 }
+
 #group_lastScan{
 	margin-right: 3%;
 	border-top: 2px solid black;
@@ -81,17 +82,26 @@ margin-top: 20%;
   
   
 
-  @media screen and (max-width: 460px) {
+  @media screen and (max-width: 550px) {
 	#cards2 {
 	  margin-top: 10%;
-	  margin-left: 17%;
+	  margin-left: 20%;
 	  
 	}
+
+	
 	.groupHeader{
 		margin-top: 20%;
 	}
 	#search2{
-		top: 15%;
+		top: 25%;
+	}
+	
+  }
+  @media screen and (max-width: 420px) {
+	#searchesGroup{
+		width: 380px;
+		text-align: left;
 	}
 	
   }
@@ -105,12 +115,28 @@ margin-top: 20%;
   @media screen and (max-width: 630px) {
 	
 	#cards2 {
-		margin-top: 15%;
 		align-items: center;
 		
 	  }
+	  
+	
 	.groupHeader{
-		margin-top: 25%;
+		margin-top: 2%;
+		margin-right: 5%;
+		.d-flex{
+			width: 200px;
+		}
+	}
+	
+  }
+  @media screen and (max-width: 760px) {
+	
+	#cards2 {
+		align-items: center;	
+	  }
+	 
+	.groupHeader{
+		margin-top: 2%;
 		margin-right: 5%;
 	}
 	

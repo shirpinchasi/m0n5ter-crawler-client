@@ -82,9 +82,10 @@ render(){
                
                <div id="bg-dark"> 
                         <NavBar/>
+                        <div id ="searchesGroup">
                         <input  id="search1" label = "search" value={searchName} type="text" placeholder="search here for name " onChange={this.nameFilter }/>
                         <input id="search2" label = "search" value={searchDesc} type="text" placeholder="search here for description" onChange={this.descFilter}/>
-                            
+                            </div>
                         
                             
                       

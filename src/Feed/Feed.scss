@@ -320,7 +320,7 @@
 #bg-dark{
 	width: auto;
     height:auto;
-    overflow: auto;
+	overflow: auto;
 	background-image: url("../pictures/brick1.jpg");
 }
 
@@ -358,21 +358,29 @@
 .input{
 	border-radius: 20px;
 }
-  #search3{
-	border-radius: 50px;
-	width: 170px;
-	position: absolute;
-	z-index: 1;
-	left: 100px;
-    text-align: center;
-    color: black;
-  }
-  #search4{
-	border-radius: 50px;
-	width: 170px;
-	position: relative;
-	margin-top: 10px;
-	left: 290px;
-    text-align: center;
-    color: black;
+#search3{
+	margin-left: 3%;
+	width: 200px;
+	margin-top: 2%;
+	border-radius: 20px;
+	color: black;
+	text-align: center;
+}
+
+#search4{
+	margin-left: 3%;
+	width: 200px;
+	border-radius: 20px;
+	color: black;
+	text-align: center;
+}
+#searchFeed{
+
+}
+@media screen and (max-width: 420px) {
+	#searchFeed{
+		width: 380px;
+		text-align: left;
+	}
+	
   }

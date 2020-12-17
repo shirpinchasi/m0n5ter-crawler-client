@@ -85,18 +85,13 @@ render(){
                   <Loader/>
                   ) :(
                     
-            <div className=" bg-dark text-white">   
-              <NavBar>
+            <div id="bg-dark">   
+              <NavBar/>
+              <div id="searchFeed">
                   <input id="search3" label = "search" value={searchTitle} type="text" placeholder="search here for title" onChange={this.TitleFilter}/>
                   <input id="search4" label = "search" value={searchName} type="text" placeholder="search here for name" onChange={this.NameFilter}/>
-              </NavBar>
-                  
-                 
-              
-              
-              
-          
-         
+              </div>
+      
             <div id="bg-dark"> 
             {data.filter(TitleFilter(searchTitle)).map((article) => article.groups.filter(NameFilter(searchName)).map((gr)=>(
               <div>

@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import Loader from "./Loader/Loader"
-import "./BarChart.scss"
+import "./PieChartMonth.scss"
 import {Pie } from 'react-chartjs-2';
 import colorschemes from "chartjs-plugin-colorschemes";
-import NavBar from "./Feed/navbar";
-import config from "./config/development"
 
-
+import config from "../config/development"
 
 
 
@@ -22,7 +19,7 @@ export default class BarChart extends Component{
     };
 
     componentDidMount(){
-      fetch(config.apiWeekSort ,{
+      fetch(config.apiMonthSort ,{
         method : "GET",
       })
       .then(res => {
@@ -59,28 +56,22 @@ render(){
   return(
       
       <div>
-          {isLoading ? (
-              <Loader/>
-          ) : (
             
-              <div id="bgColor"><NavBar/>
-                  <div id="pieChart"><p className ="title"> Last 7 Days Top Groups</p>
+              <div>
+                  <div id="BarChart"><p className ="title"> Last 30 Days Top Groups</p>
                      <Pie id="chart"
                      
                         data ={{   
                             datasets : [{   
                             
                                     data : counts,
-                                 
-                                
-                                
                                 options:{
                                     legend:{
                                         labels:{
                                             fontColor:"black",
                                              plugins:{
                                                 colorschemes : {
-                                                    sceme : "brewer.RdYlBu11",
+                                                    sceme : "tableau.Classic20",
                                                     
                                             }
                                     }
@@ -100,9 +91,6 @@ render(){
                   
               
                 </div>
-      
-          )
-}
 </div>
 )
 }}
