@@ -1,7 +1,7 @@
 #bgColor{
-    background: url("../pictures/white.jpg");
+    background: url("../pictures/brick1.jpg");
     width: auto;
-    height: 1000px;
+    height: 1661px;
 }
 .title{
     color: black;
@@ -11,44 +11,58 @@
     font-weight: bold;
 
 }
-#pieChart{
+#pieChart7Days{
     background-color: white;
-    margin-top: 2%;
-    margin-left: 2%;
-    box-shadow: 10px 10px 10px 8px #888888;
-    width: 450px;
-    height: 300px;
+    margin-top: 3%;
+    box-shadow: 5px 5px 5px 5px ;
+    width: 500px;
+    height: 400px;
 }
 #ajustMonth{
     position: relative;
+    margin-left: 50em;
+    bottom: 28.6em;
     
 }
 #ajustYear{
-    position: relative;
-    
+    height: 200px;
 }
+
 @media screen and (min-width : 1100px){
-    #ajustMonth{
-       margin-left: 45%;
-       bottom: 31%;
-    }
+    // #ajustMonth{
+    
+       
+    // }
     #ajustYear{
-        margin-left: 20%;
-        bottom: 29%;
+        margin-left: 7%;
+        
     }
  }
-
-@media screen and (max-width : 680px){
+ @media screen and (max-width : 680px){
     #ajustMonth{
        width: 300px;
        height: 300px;
     }
     #ajustYear{
-        width: 1000px;
+        width: 280px;
         height: 300px;
         margin-top: 5%;
     
      }
+}
+@media screen and (max-width : 400px){
+    #pieChart7Days{
+       width: 380px;
+       height: 300px;
+    }
+}
+
+
+@media screen and (max-width : 660px){
+    #pieChart7Days{
+       width: 640px;
+       height: 400px;
+    }
 }
 
 

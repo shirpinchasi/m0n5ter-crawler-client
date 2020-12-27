@@ -6,17 +6,31 @@
     font-weight: bold;
 
 }
-#BarChart{
+#PieChartMonth{
     background-color: white;
-    margin-top: 2%;
-    margin-left: 2%;
-    box-shadow: 10px 10px 10px 8px #888888;
-    width: 630px;
-    height: 380px;
+    box-shadow: 5px 5px 5px 5px;
+    width: 500px;
+    height: 400px;
 }
 @media screen and (max-width : 660px){
-    #BarChart{
-        width: 500px;
-        height: 320px;
+    #PieChartMonth{
+        width: 650px;
+        height: 400px;
+        margin-top: 10%;
     }
 }
+@media screen and (max-width : 400px){
+    #PieChartMonth{
+        width: 350px;
+        height: 350px;
+        margin-top: 20%;
+    }
+}
+@media screen and (max-width : 460px){
+    #PieChartMonth{
+        width: 450px;
+        height: 350px;
+        margin-top: 20%;
+    }
+}
+

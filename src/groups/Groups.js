@@ -83,8 +83,8 @@ render(){
                <div id="bg-dark"> 
                         <NavBar/>
                         <div id ="searchesGroup">
-                        <input  id="search1" label = "search" value={searchName} type="text" placeholder="search here for name " onChange={this.nameFilter }/>
-                        <input id="search2" label = "search" value={searchDesc} type="text" placeholder="search here for description" onChange={this.descFilter}/>
+                        <input  id="search1" label = "search" value={searchName} type="text" placeholder="search for name " onChange={this.nameFilter }/>
+                        <input id="search2" label = "search" value={searchDesc} type="text" placeholder="search for description" onChange={this.descFilter}/>
                             </div>
                         
                             
@@ -105,10 +105,9 @@ render(){
                                       <div key={group.desc} id="group_desc">{group.description} <a id="show-more" className="show-less"></a>
                                       <a id="show-less" className="show-more"></a></div>
                                   </div>
-                                  {/* <div id="scroll_alias">
-                                      
+                                  <div id="scroll_alias">
                                       <div key={group.alias} id="group_aliases">{group.aliases}</div>
-                                  </div> */}
+                                  </div>
                                     <div className="lastScan">
                                         <div key={group.last_scan} id="group_lastScan"> last scan : {group.lastScan}</div>
                                   </div>

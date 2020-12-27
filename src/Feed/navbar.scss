@@ -21,11 +21,12 @@
 	margin-top: 10px;
 	justify-content: space-between;
 	font-size: 19px;
-	a{
-		
+	a{	
 		color: white;
 		justify-content: space-between;
-		
+		svg{
+			margin-right: 5px;
+		}
 	}
 }
 @media screen and (max-width: 920px) {
@@ -49,30 +50,32 @@
 		width: 200px;
 		position: absolute;
 		margin-right: 20%;
-		top:30px;
+		top:0%;
 	}
 	.links{
 		width: 330px;
 		justify-content: space-between;
 		right: 40px;
+		top:40%;
 	}
 	
   }
   @media screen and (max-width: 370px) {
 	.navbar{
-		height: 100px;
+		height: 80px;
 	}
   .navbar-brand{
 	  font-size: medium;
 	  width: 200px;
 	  position: absolute;
 	  margin-right: 10%;
-	  top:50px;
+	  top: 0;
+	  
   }
   .links{
 	  width: 270px;
 	  justify-content: space-between;
 	  right: 30px;
+	  top:40%;
   }
-  
 }

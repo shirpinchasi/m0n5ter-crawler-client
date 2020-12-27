@@ -12,7 +12,7 @@ export default class NavBar extends Component{
             <div className ="navbar navbar-expand-lg mt-2 ">
                 <a className="navbar-brand" href="#">M0n5ter Crawler</a>
                 <div className="links">
-                    <a><Link to= "/" alt ="/" ><FontAwesomeIcon icon={faHome} className="fa-home fa-sm"></FontAwesomeIcon>Home</Link></a>
+                    <a><Link to= "/" alt ="/" ><FontAwesomeIcon icon={faHome} className="fa-home fa-sm"></FontAwesomeIcon>Feed</Link></a>
                     <a><Link to= "./Groups" alt ="Groups" ><FontAwesomeIcon icon ={faUsers} className="fa-users fa-sm"></FontAwesomeIcon>Groups</Link></a>
                     <a><Link to= "./Charts" alt ="Charts" ><FontAwesomeIcon icon = {faChartPie} className="fa-chart-pie fa-sm"></FontAwesomeIcon>Statistics</Link></a>
                     </div>

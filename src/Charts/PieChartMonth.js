@@ -8,7 +8,7 @@ import config from "../config/development"
 
 
 
-export default class BarChart extends Component{
+export default class BarChartMonth extends Component{
     constructor(props){
       super(props);
       this.state = {
@@ -58,7 +58,7 @@ render(){
       <div>
             
               <div>
-                  <div id="BarChart"><p className ="title"> Last 30 Days Top Groups</p>
+                  <div id="PieChartMonth"><p className ="title"> Last 30 Days Top Groups</p>
                      <Pie id="chart"
                      
                         data ={{   

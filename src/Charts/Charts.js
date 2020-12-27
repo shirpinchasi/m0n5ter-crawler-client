@@ -6,7 +6,7 @@ import colorschemes from "chartjs-plugin-colorschemes";
 import NavBar from "../Feed/navbar";
 import config from "../config/development"
 import PieChartMonth from "./PieChartMonth";
-import BarChartYear from "./BarChartYear";
+import BarChartYear from './BarChartYear';
 
 
 
@@ -66,9 +66,8 @@ render(){
               <Loader/>
           ) : (
             
-              <div id="bgColor">
-                <NavBar/>
-                  <div id="pieChart"><p className ="title"> Last 7 Days Top Groups</p>
+              <div id="bgColor"><NavBar/>
+                  <div id="pieChart7Days"><p className ="title"> Last 7 Days Top Groups</p>
                      <Pie id="chart"
                      
                         data ={{   
@@ -99,8 +98,8 @@ render(){
                         
                     </div>
                     <div id="ajustMonth">
-                        <PieChartMonth/>
-                    </div>
+                            <PieChartMonth/>
+                        </div>
                     <div id="ajustYear">
                       <BarChartYear/>
                     </div>

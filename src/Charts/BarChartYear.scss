@@ -1,15 +1,38 @@
 #BarChartYear{
     background-color: white;
     margin-top: 2%;
-    margin-left: 2%;
-    box-shadow: 10px 10px 10px 8px #888888;
-    width: 450px;
-    height: 300px;
+    box-shadow: 5px 5px 5px 5px;
+    width: 600px;
+    height: 370px;
+}
+.dropdown{
+    width: 250px;
+    margin-left: 20px;
+    top: -10%;
+
 }
 @media screen and (min-width : 1100px){
     #BarChartYear{
-       width: 800px;
-       height: 500px;
+       width: 1200px;
+       height: 710px;
+       bottom: 5cm;
+       right: 1.5cm;
+       position: relative;
+    
     }
  }
+ @media screen and (max-width : 400px){
+    #BarChartYear{
+        width: 350px;
+        height: 320px;
+        margin-top: 40%;
+    }
+}
+@media screen and (max-width : 460px){
+    #BarChartYear{
+        width: 450px;
+        height: 320px;
+        margin-top: 40%;
+    }
+}
 

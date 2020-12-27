@@ -4,13 +4,15 @@ import {Bar } from 'react-chartjs-2';
 import colorschemes from "chartjs-plugin-colorschemes";
 import config from "../config/development"
 import { plugins } from 'chart.js';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 
 
 
 
 
-export default class PieChartYear extends Component{
+export default class BarChartYear extends Component{
     constructor(props){
       super(props);
       this.state = {
@@ -18,8 +20,10 @@ export default class PieChartYear extends Component{
           isLoading : true,
          
       }; 
+      this.onChange = this.onChange.bind(this)
     };
 
+  
     componentDidMount(){
       fetch(config.apiYearSort ,{
         method : "GET",
@@ -30,6 +34,7 @@ export default class PieChartYear extends Component{
         this.setState({
            data :res.groups,
            isLoading : false,
+           
         })
       })
       .catch((err =>{
@@ -37,14 +42,20 @@ export default class PieChartYear extends Component{
       }));
       
     };
+    onChange = (e)=>{
+        this.setState({
+            _onSelect :e.target.value
+        })
+    }
 
-    
      
 
 render(){
   const { data} = (this.state);
   const labels = [];
   const counts = [];
+  const options = [];
+  const defaultOption = []
   const len = data.length;
   for (var i=0; i<len; i++){
     labels.push(
@@ -54,24 +65,55 @@ render(){
         data[i].articlesCount
    );
   };
+  labels.forEach((element)=>{
+      options.push(element)
+  });
+options.map((option)=>{
+    defaultOption.push(option)
+});
+  console.log(options);
   console.log(counts);
+ console.log(defaultOption);
   return(
       
       <div>
               <div>
-                  <div id="BarChartYear"><p className ="title"> Top of the year</p>
-                     <Bar id="chart"
+                  <div id="BarChartYear"><p className ="title"> Top of the year</p><Dropdown className="dropdown" options={options} onChange={this._onSelect} value={defaultOption} placeholder="select group to show" arrowClosed={<span className="arrow-closed" />} arrowOpen={<span className="arrow-open" />}/>
+                  
+                     <Bar id="chart" 
                         data= {{
+                            
                             labels: labels,
+                            value: defaultOption,
+                            onChange:this._onSelect,
                             datasets: [{       
                                 data :counts,
-                                label:"top group of the year"
-                            }]
+                                beginAtZero:true,
+                                min:0,
+                                label:"top group of the year",
+                                options: {
+                                    defaults:{
+                                    scales: {
+                                        yAxes: [{ 
+                                        
+                                            ticks: {
+                                                
+                                                beginAtZero: true,
+                                                max:10,
+                                                min:0,
+                                            }
+                                        }]
+                                    }
+                                }}
                             
+                            }],
                             
                         }}
+                        
+                        
                         />
                     </div>
+                    
 
                         
                   
@@ -80,4 +122,4 @@ render(){
 </div>
 
 )
-}}
+}};
