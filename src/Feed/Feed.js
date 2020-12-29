@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
+import React, {useState, Component } from 'react';
 import "./Feed.scss";
 import "bootstrap";
 import config from "../config/development";
 import NavBar from "./navbar";
 import Loader from "../Loader/Loader";
 import Pagination from "react-js-pagination";
-import { event } from 'jquery';
-
-
 
 
 function TitleFilter(searchTitle){
@@ -32,28 +29,34 @@ export default class Feed extends Component{
           isLoading : true,
           searchTitle : "",
           searchName : "",
-          
+          activePage : 0,
+          maxPage :300,
+          articlesPerPage:26
       };
       
       
       this.TitleFilter = this.TitleFilter.bind(this);
       this.NameFilter  = this.NameFilter.bind(this);
       this.groupsFilter  = this.groupsFilter.bind(this);
-
+      
+     
     };
 
-
-
     componentDidMount(){
-      fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc&page=0&size=23`,{
+      fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc&page=${this.state.activePage}&size=26` ,{
         method : "GET",
+        
+        
       })
     .then(res => res.json())
     .then(res => {
         this.setState({
            data : res._embedded.articles,
            isLoading : false,
+           activePage : 0,
+           
         });
+        
       }) 
       .catch((err =>{
         console.error(err);
@@ -70,12 +73,13 @@ NameFilter(e){
 groupsFilter(e){
   this.setState({searchGroup : e.target.value })
 };
-
+handlePageChange(activePage){
+  console.log("active page is " + activePage );
+  this.setState({activePage : activePage})
+}
 
 render(){
-  const {isLoading , data , searchTitle , searchName } = (this.state);
- 
-  
+const {isLoading , data , searchTitle , searchName, activePage,articlesPerPage,maxPage} = (this.state);
   return( 
             <div id="background">
                 {isLoading ? (
@@ -87,11 +91,23 @@ render(){
               <div id="searchFeed">
                   <input id="search3" label = "search" value={searchTitle} type="text" placeholder="search here for title" onChange={this.TitleFilter}/>
                   <input id="search4" label = "search" value={searchName} type="text" placeholder="search here for name" onChange={this.NameFilter}/>
+                  <Pagination
+                  
+                  activePage={activePage}
+                  itemsCountPerPage={articlesPerPage}
+                  
+                  totalItemsCount ={maxPage}
+                  onChange={this.handlePageChange.bind(this)}
+                  />
               </div>
-      
+        
             <div id="bg-dark"> 
-            {data.filter(TitleFilter(searchTitle)).map((article) => article.groups.filter(NameFilter(searchName)).map((gr)=>(
+          
+            {data.slice(0,26).filter(TitleFilter(searchTitle)).map((article) => article.groups.filter(NameFilter(searchName)).map((groups)=>(
               <div>
+                
+             
+              {/* {console.log(...article.groups)} */}
                 <div id ="cards" className="col-12 col-md- col-sm-2 col-xs">
                   <div id = "backgroundTitle">
                         <a href={config.apiUrl +"/" + article.id+"/content"} id ="article_Url" target="_blank" rel="noopener noreferrer" className="card link">
@@ -100,21 +116,33 @@ render(){
                         <div id="date_name_center">
                         <div key={article.da} id ="article_Date" className="card-subtitle mb-2 text-muted">{article.date}</div>
                               <div className="badge badge-success">
-                                <div key={gr.n} id ="group_Name" className="">{gr.name}</div>
+                                <div key={article.group} id ="group_Name" className="">{groups.name}
+                              </div>
                               </div>
                         </div>
                         
                   </div>
+                  
                  
               </div>
               
               
-            ))
-             )} 
+                ))
+            
+  )} 
+     
             
             
 
         </div>
+        <Pagination
+                  
+                  activePage={activePage}
+                  itemsCountPerPage={23}
+                  nextPage={this.nextPage}
+                  totalItemsCount ={300}
+                  onChange={this.handlePageChange.bind(this)}
+                  />
         
       </div>
       
@@ -126,8 +154,8 @@ render(){
   </div>
         
 
-        
-        )
+             
+  )
   }
 }
 

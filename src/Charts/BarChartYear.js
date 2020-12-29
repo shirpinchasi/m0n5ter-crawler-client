@@ -9,9 +9,6 @@ import 'react-dropdown/style.css';
 
 
 
-
-
-
 export default class BarChartYear extends Component{
     constructor(props){
       super(props);
@@ -47,6 +44,7 @@ export default class BarChartYear extends Component{
             _onSelect :e.target.value
         })
     }
+    
 
      
 
@@ -55,7 +53,7 @@ render(){
   const labels = [];
   const counts = [];
   const options = [];
-  const defaultOption = []
+  
   const len = data.length;
   for (var i=0; i<len; i++){
     labels.push(
@@ -68,30 +66,24 @@ render(){
   labels.forEach((element)=>{
       options.push(element)
   });
-options.map((option)=>{
-    defaultOption.push(option)
-});
-  console.log(options);
-  console.log(counts);
- console.log(defaultOption);
+
   return(
       
       <div>
               <div>
-                  <div id="BarChartYear"><p className ="title"> Top of the year</p><Dropdown className="dropdown" options={options} onChange={this._onSelect} value={defaultOption} placeholder="select group to show" arrowClosed={<span className="arrow-closed" />} arrowOpen={<span className="arrow-open" />}/>
+                  <div id="BarChartYear"><p className ="title"> Top of the year</p><Dropdown className="dropdown" options={options} _onSelect={this.onChange} value={options} placeholder="select group to show" arrowClosed={<span className="arrow-closed" />} arrowOpen={<span className="arrow-open" />}/>
                   
-                     <Bar id="chart" 
+                     <Bar id="chart"
                         data= {{
                             
-                            labels: labels,
-                            value: defaultOption,
-                            onChange:this._onSelect,
+                            labels:options,
                             datasets: [{       
                                 data :counts,
                                 beginAtZero:true,
                                 min:0,
                                 label:"top group of the year",
                                 options: {
+                                    
                                     defaults:{
                                     scales: {
                                         yAxes: [{ 
@@ -101,12 +93,16 @@ options.map((option)=>{
                                                 beginAtZero: true,
                                                 max:10,
                                                 min:0,
-                                            }
+                                            },
+                                            
                                         }]
-                                    }
-                                }}
+                                    },
+                                    
+                                }},
+                                
                             
                             }],
+                            
                             
                         }}
                         

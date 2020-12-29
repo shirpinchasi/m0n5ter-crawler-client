@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import "./PieChartMonth.scss"
-import {Pie } from 'react-chartjs-2';
+import {Pie,Chart,ctx } from 'react-chartjs-2';
 import colorschemes from "chartjs-plugin-colorschemes";
-
 import config from "../config/development"
-
-
-
 
 export default class BarChartMonth extends Component{
     constructor(props){
@@ -52,12 +48,11 @@ render(){
         data[i].articlesCount
    );
   };
-  console.log(counts);
   return(
+    
       
       <div>
-            
-              <div>
+          <div>
                   <div id="PieChartMonth"><p className ="title"> Last 30 Days Top Groups</p>
                      <Pie id="chart"
                      

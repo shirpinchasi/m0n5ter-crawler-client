@@ -58,7 +58,6 @@ render(){
         data[i].articlesCount
    );
   };
-  console.log(counts);
   return(
       
       <div>

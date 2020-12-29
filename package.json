@@ -20,6 +20,7 @@
     "moment": "^2.29.1",
     "node-engine": "0.0.5",
     "popper.js": "^1.16.1",
+    "prime-time": "^1.2.0",
     "react": "^16.13.1",
     "react-bootstrap-4-pagination": "^1.0.3",
     "react-chartjs-2": "^2.11.1",

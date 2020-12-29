@@ -1,40 +1,49 @@
-var date =new Date();
-
-var firstDay =  new Date(date.getFullYear(), date.getMonth(), 1).toISOString().replace(/T.*/,'').split('-').reverse().join('-');
-var lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).toISOString().replace(/T.*/,'').split('-').reverse().join('-');
-var first = date.getDate();
-var last = first -7 ; 
-
-var firstDayofWeek = new Date(date.setDate(first)).toISOString().replace(/T.*/,'').split('-').reverse().join('-');
-var lastdayOfWeek = new Date(date.setDate(last)).toISOString().replace(/T.*/,'').split('-').reverse().join('-');
+import moment from "moment";
 
 
+var startOfWeek = moment();
+startOfWeek = startOfWeek.startOf("week");
+startOfWeek = startOfWeek.format("DD-MM-YYYY");
+console.log(startOfWeek);
 
-var firstDayM = date.getDate() ;
-var lastDayM = first -30 ;
+var endOfWeek = moment();
+endOfWeek = endOfWeek.endOf("week");
+endOfWeek = endOfWeek.format("DD-MM-YYYY");
+console.log(endOfWeek);
+
+var startOfMonth = moment();
+startOfMonth = startOfMonth.startOf("M");
+startOfMonth = startOfMonth.format("DD-MM-YYYY");
+console.log(startOfMonth);
+
+var endOfMonth = moment();
+endOfMonth = endOfMonth.endOf("M");
+endOfMonth = endOfMonth.format("DD-MM-YYYY");
+console.log(endOfMonth);
 
 
-var firstDayofMonth = new Date(date.setDate(firstDayM)).toISOString().replace(/T.*/,'').split('-').reverse().join('-');
-var lastdayOfMonth = new Date(date.setDate(lastDayM)).toISOString().replace(/T.*/,'').split('-').reverse().join('-');
 
-var firstDayY = date.getDate(firstDay) ;
-var lastDayY = first -365  ;
+var startOfYear = moment();
+startOfYear = startOfYear.startOf("Y");
+startOfYear = startOfYear.format("DD-MM-YYYY");
+console.log(startOfYear);
 
-var firstDayofYear = new Date(date.setDate(firstDayY)).toISOString().replace(/T.*/,'').split('-').reverse().join('-');
-var lastDayOfYear = new Date(date.setDate(lastDayY)).toISOString().replace(/T.*/,'').split('-').reverse().join('-');
+var endOfYear = moment();
+endOfYear = endOfYear.endOf("Y");
+endOfYear = endOfYear.format("DD-MM-YYYY");
+console.log(endOfYear);
 
-console.log(firstDayofYear);
-console.log(lastDayOfYear);
+
 export default{
     env: process.env.NODE_ENV,
     apiUrl: 'https://m0n5ter-crawler.herokuapp.com/api/articles',
     articleSort: '?sort=date,desc',
     apiSortName : "https://m0n5ter-crawler.herokuapp.com/api/groups?sort=name",   
-    apiWeekSort : "https://m0n5ter-crawler.herokuapp.com/api/statistics/group?startDate=" + lastdayOfWeek + "&endDate=" + firstDayofWeek,
-    apiMonthSort : "https://m0n5ter-crawler.herokuapp.com/api/statistics/group?startDate=" + lastdayOfMonth + "&endDate=" + firstDayofMonth,
-    apiYearSort : "https://m0n5ter-crawler.herokuapp.com/api/statistics/group?startDate=" + lastDayOfYear + "&endDate=" + firstDayofYear
+    apiWeekSort : "https://m0n5ter-crawler.herokuapp.com/api/statistics/group?startDate="+startOfWeek +"&endDate=" + endOfWeek,
+    apiMonthSort : "https://m0n5ter-crawler.herokuapp.com/api/statistics/group?startDate="+ startOfMonth +"&endDate=" + endOfMonth,
+    apiYearSort : "https://m0n5ter-crawler.herokuapp.com/api/statistics/group?startDate=" + startOfYear + "&endDate=" + endOfYear,
 
-
-    
+   
 };
+
 

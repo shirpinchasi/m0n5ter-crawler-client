@@ -1,3 +1,10 @@
+import { primetime } from "prime-time";
+
+console.log(primetime().localise('WDD-MMMM-DD'))
+
+
+
+
 // import React, { Component } from 'react';
 // import './App.css';
 
