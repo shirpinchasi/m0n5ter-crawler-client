@@ -30,8 +30,8 @@ export default class Feed extends Component{
           searchTitle : "",
           searchName : "",
           activePage : 0,
-          maxPage :300,
-          articlesPerPage:26
+          maxPage :3000,
+          articlesPerPage:22
       };
       
       
@@ -43,7 +43,7 @@ export default class Feed extends Component{
     };
 
     componentDidMount(){
-      fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc&page=${this.state.activePage}&size=26` ,{
+      fetch(`https://m0n5ter-crawler.herokuapp.com/api/articles?sort=date,desc&page=${this.state.activePage}&size=20` ,{
         method : "GET",
         
         
@@ -53,7 +53,9 @@ export default class Feed extends Component{
         this.setState({
            data : res._embedded.articles,
            isLoading : false,
-           activePage : 0,
+           articlesPerPage : 22,
+           activePage : Math.ceil(res._embedded.articles.length / this.state.maxPage)
+           
            
         });
         
@@ -80,6 +82,9 @@ handlePageChange(activePage){
 
 render(){
 const {isLoading , data , searchTitle , searchName, activePage,articlesPerPage,maxPage} = (this.state);
+const startIndex = (activePage -1) * articlesPerPage;
+console.log(data);
+console.log(activePage);
   return( 
             <div id="background">
                 {isLoading ? (
@@ -92,18 +97,16 @@ const {isLoading , data , searchTitle , searchName, activePage,articlesPerPage,m
                   <input id="search3" label = "search" value={searchTitle} type="text" placeholder="search here for title" onChange={this.TitleFilter}/>
                   <input id="search4" label = "search" value={searchName} type="text" placeholder="search here for name" onChange={this.NameFilter}/>
                   <Pagination
-                  
                   activePage={activePage}
                   itemsCountPerPage={articlesPerPage}
-                  
                   totalItemsCount ={maxPage}
                   onChange={this.handlePageChange.bind(this)}
                   />
               </div>
         
             <div id="bg-dark"> 
-          
-            {data.slice(0,26).filter(TitleFilter(searchTitle)).map((article) => article.groups.filter(NameFilter(searchName)).map((groups)=>(
+            page {activePage}
+            {data.slice(startIndex, startIndex + articlesPerPage).filter(TitleFilter(searchTitle)).map((article) => article.groups.filter(NameFilter(searchName)).map((groups)=>(
               <div>
                 
              

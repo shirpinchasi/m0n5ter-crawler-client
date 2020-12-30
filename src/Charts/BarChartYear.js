@@ -1,13 +1,10 @@
 import React, { Component } from 'react';
 import "./BarChartYear.scss"
-import {Bar } from 'react-chartjs-2';
+import {Bar,Chart } from 'react-chartjs-2';
 import colorschemes from "chartjs-plugin-colorschemes";
 import config from "../config/development"
-import { plugins } from 'chart.js';
-import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
-
-
+import Dropdown from 'react-dropdown';
 
 export default class BarChartYear extends Component{
     constructor(props){
@@ -15,9 +12,11 @@ export default class BarChartYear extends Component{
       this.state = {
           data : [],
           isLoading : true,
-         
+         options : ""
       }; 
-      this.onChange = this.onChange.bind(this)
+this.onChange = this.onChange.bind(this)
+this.handleChange = this.handleChange.bind(this)
+      
     };
 
   
@@ -31,22 +30,21 @@ export default class BarChartYear extends Component{
         this.setState({
            data :res.groups,
            isLoading : false,
-           
+           options:""
         })
       })
       .catch((err =>{
         console.error(err);
       }));
-      
     };
-    onChange = (e)=>{
+    onChange(e) {
+        this.handleChange(e)
+      }
+      handleChange(e) {
         this.setState({
-            _onSelect :e.target.value
-        })
+          options: e
+        });
     }
-    
-
-     
 
 render(){
   const { data} = (this.state);
@@ -67,36 +65,42 @@ render(){
       options.push(element)
   });
 
+  function updateData() {
+    Bar.data[options].data = this.onChange
+    Bar.update();
+}
+
+
+
   return(
-      
+    
       <div>
               <div>
-                  <div id="BarChartYear"><p className ="title"> Top of the year</p><Dropdown className="dropdown" options={options} _onSelect={this.onChange} value={options} placeholder="select group to show" arrowClosed={<span className="arrow-closed" />} arrowOpen={<span className="arrow-open" />}/>
+                  <div id="BarChartYear"><p className ="title"> Top of the year</p><Dropdown className="dropdown" value={this.state.options} options={options} onChange={e => this.handleChange(e)}><options value={options}/></Dropdown> 
                   
                      <Bar id="chart"
+                     
                         data= {{
+                            labels: options,
                             
-                            labels:options,
                             datasets: [{       
                                 data :counts,
-                                beginAtZero:true,
-                                min:0,
                                 label:"top group of the year",
                                 options: {
-                                    
                                     defaults:{
                                     scales: {
                                         yAxes: [{ 
-                                        
+                                            
                                             ticks: {
                                                 
                                                 beginAtZero: true,
-                                                max:10,
+                                                
                                                 min:0,
                                             },
                                             
                                         }]
                                     },
+                                    
                                     
                                 }},
                                 
@@ -104,17 +108,23 @@ render(){
                             }],
                             
                             
+                            
                         }}
                         
                         
+                        
+                        
                         />
+                        
                     </div>
+                    
                     
 
                         
                   
                     
                 </div>
+                
 </div>
 
 )

@@ -52,7 +52,7 @@ render(){
   const len = data.length;
   for (var i=0; i<len; i++){
     labels.push(
-           data[i].name
+          data[i].name
       );
       counts.push(
         data[i].articlesCount
