@@ -5,7 +5,6 @@ import NavBar from "../Feed/navbar";
 import config from "../config/development"
 import Loader from "../Loader/Loader";
 
-
 function nameFilter(searchName){
   return function(x){
      return x.name.toLowerCase().includes(searchName.toLowerCase()) || !searchName
@@ -93,7 +92,7 @@ render(){
                     
                     <div className="d-flex justify-content-around">
                       <h1 className="groupHeader">Group Page</h1>
-                          {data.filter(nameFilter(searchName)).filter(descFilter(searchDesc)).map(( group)=>(
+                          {data.filter(nameFilter(searchName)).filter(descFilter(searchDesc)).map((group)=>(
                             <div className="d-flex">
                               
                               <div id="cards2" className="col-12 col-md- col-sm-2 col-xs">
@@ -104,9 +103,11 @@ render(){
                                       <a id="show-less" className="show-more"></a></div>
                                   </div>
                                   <div id="scroll_alias">
-                                      <div key={group.alias} id="group_aliases">{group.aliases}{console.log(JSON.stringify(group.aliases))}</div>
+                                      
+                                      <div key={group.alias} id="group_aliases">{group.aliases.join(",   " )  +"    "}</div>
                                   </div>
                                     <div className="lastScan">
+                                      
                                         <div key={group.last_scan} id="group_lastScan"> last scan : {group.lastScan}</div>
                                   </div>
                                </div>

@@ -7,15 +7,20 @@
 #scroll_alias{
 	border-top:3px dotted black;
 	text-align: center;
-	margin-top: 10%;
+	margin-top: 15%;
+	width: 195px;
 	#group_aliases{
+		width: 80%;
+		margin-left: 15px;
+		text-align: justify;
+		white-space: break-spaces;
+		text-align: center;
 		margin-top: 5%;
-		font-size: small;
+		font-size: 15px;
 	}
 }
 
 .lastScan{
-
 margin-top: 20%;
 }
 .groupHeader{
@@ -81,6 +86,7 @@ margin-top: 20%;
 #group_lastScan{
 	margin-right: 3%;
 	border-top: 2px solid black;
+	
 	
 }
 

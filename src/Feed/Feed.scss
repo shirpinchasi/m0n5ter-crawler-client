@@ -13,9 +13,11 @@
 	border-radius: 10%;
 	background:linear-gradient(#232526,#414345);
 	box-shadow: 3px 4px 8px 6px rgba(4, 5, 75, 0.2), 0 6px 20px 0 rgba(49, 23, 23, 0.19);
-	
-	
+	overflow-y: auto;
 }
+#cards::-webkit-scrollbar {
+	display: none;
+  }
 #article_Title{
 	padding-top: 5%;
 	line-height: 30px;
@@ -31,7 +33,7 @@
 }
 #date_center{
 	text-align: center;
-	margin-top: 70%;
+	margin-top: 60%;
 
 	#group_Id{
 		width: 180px;
@@ -40,8 +42,8 @@
 #group_Name{
 	color: white;
 	width: auto;
-	height: 20px;
-	margin-top: 5%;
+	height: 23px;
+	margin-top: 8%;
 }
 
 
@@ -107,4 +109,26 @@
 		width: auto;
 	}
 	
+  }
+.loadMore{
+	background:linear-gradient(#232526,#414345);
+	color: white;
+	width: 200px;
+	height: 40px;
+	border-radius: 50px;
+	margin-left: 40%;
+	margin-bottom: 40px;
+	font-size: medium;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  .arrowUp{
+	  position: relative;
+	  width: 50px;
+	  height: 50px;
+	  margin-left: 30px;
+	  
+  }
+  .text{
+	  color: white;
+	  font-size: large;
   }

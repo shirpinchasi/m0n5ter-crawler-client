@@ -16,6 +16,8 @@
     "chart.js": "^2.9.4",
     "chartjs-plugin-colorschemes": "^0.4.0",
     "create-react-app": "^4.0.1",
+    "highcharts": "^8.2.2",
+    "highcharts-react-official": "^3.0.0",
     "jquery": "^3.5.1",
     "moment": "^2.29.1",
     "node-engine": "0.0.5",

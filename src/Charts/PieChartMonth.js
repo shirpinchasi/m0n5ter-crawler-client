@@ -53,7 +53,7 @@ render(){
       
       <div>
           <div>
-                  <div id="PieChartMonth"><p className ="title"> Last 30 Days Top Groups</p>
+                  <div id="PieChartMonth"><p className ="title"> This Month Top Groups</p>
                      <Pie id="chart"
                      
                         data ={{   

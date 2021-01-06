@@ -66,7 +66,7 @@ render(){
           ) : (
             
               <div id="bgColor"><NavBar/>
-                  <div id="pieChart7Days"><p className ="title"> Last 7 Days Top Groups</p>
+                  <div id="pieChart7Days"><p className ="title">This Week Top Groups</p>
                      <Pie id="chart"
                      
                         data ={{   
